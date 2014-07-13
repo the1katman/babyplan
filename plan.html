@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Your Baby Plan - Baby Wellness Plan</title>
+
+    <link rel="stylesheet" href="css/foundation/foundation.css"/>
+    <link rel="stylesheet" href="css/foundation/icons/foundation-icons.css"/>
+    <link rel="stylesheet" href="app/common/main.css"/>
+    <link rel="stylesheet" href="app/pages/plan/plan.css"/>
+
+    <link rel="shortcut icon" href="img/favicon/yy_16x16.ico"/>
+
+    <script src="js/modernizr.js"></script>
+</head>
+
+<body>
+
+<div class="row">
+    <div class="small-12 columns">
+        <!-- nav for small screen -->
+        <nav class="tab-bar show-for-small">
+            <section class="middle tab-bar-section">
+                <h1>
+                    <a href="index.html" class="tab-bar-title">Baby Plan Home</a>
+                </h1>
+            </section>
+        </nav>
+
+        <!-- nav for medium screens and up -->
+        <nav class="top-bar hide-for-small" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1>
+                        <a href="index.html">Baby Plan Home</a>
+                    </h1>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- main content -->
+        <section>
+            <h1>Baby Wellness Plan</h1>
+
+            <hr/>
+
+            <!-- plan controls -->
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <span class="plan-control-label">
+                                Timeline:
+                            </span>
+                        </div>
+                        <div class="small-9 columns">
+                            <a href="#" data-dropdown="view-dropdown" class="button dropdown small radius">Phases</a>
+                            <br/>
+                            <ul id="view-dropdown" data-dropdown-content class="f-dropdown">
+                                <li>
+                                    <a href="#">Recurring</a>
+                                </li>
+                                <li>
+                                    <a href="#">Complete</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-12 medium-6 columns">
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <span class="plan-control-label">
+                                Category:
+                            </span>
+                        </div>
+                        <div class="small-9 columns">
+                            <a href="#" data-dropdown="category-dropdown" class="button dropdown small radius">Appointments</a>
+                            <br/>
+                            <ul id="category-dropdown" data-dropdown-content class="f-dropdown">
+                                <li>
+                                    <a href="#">Nutrition</a>
+                                </li>
+                                <li>
+                                    <a href="#">Exercise</a>
+                                </li>
+                                <li>
+                                    <a href="#">All</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-panel">
+            <p class="footer-copyright">
+                &copy; 2014 YutYut, Inc. All rights reserved.
+            </p>
+        </footer>
+    </div>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+</body>
+</html>
