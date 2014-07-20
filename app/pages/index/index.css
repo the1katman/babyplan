@@ -1,3 +1,23 @@
-.start-your-baby-plan-button {
+.workflow-panel {
+    line-height: 3.75rem;
     text-align: center;
+}
+
+.workflow-icon-panel {
+    vertical-align: sub;
+}
+
+.workflow-icon {
+    font-size: 3.75rem;
+}
+
+.workflow-icon-text {
+    margin-left: 1rem;
+    vertical-align: super;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+}
+
+.baby-plan-icon {
+    color: #ffc0cb; /* pink */
 }

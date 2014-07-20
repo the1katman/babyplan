@@ -1,24 +1,20 @@
-a.tab-bar-title:link {
-    color: #fff; /* white */
+nav.tab-bar,
+nav.top-bar,
+.footer-panel {
+    background-color: midnightblue;
 }
 
-a.tab-bar-title:active {
-    color: #fff; /* white */
-}
-
-a.tab-bar-title:visited {
-    color: #fff; /* white */
-}
-
+a.tab-bar-title:link,
+a.tab-bar-title:active,
+a.tab-bar-title:visited,
 a.tab-bar-title:hover {
-    color: #fff; /* white */
+    color: #fff;  /* white */
 }
 
 .footer-panel {
     padding: 0.5rem 0 1rem;
     text-align: center;
-    background-color: #333;
-    color: #667; /* dim grey*/
+    color: #fff; /* white */
 }
 
 .footer-copyright {
