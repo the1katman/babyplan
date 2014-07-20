@@ -1,7 +1,7 @@
 nav.tab-bar,
 nav.top-bar,
 .footer-panel {
-    background-color: midnightblue;
+    background-color: #484848;  /* darker grey */
 }
 
 a.tab-bar-title:link,
