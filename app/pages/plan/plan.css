@@ -7,21 +7,9 @@
     border-color: #000 transparent transparent transparent;
 }
 
-a.plan-control-button:link {
-    background: #fffacd; /* lemonchiffon */
-    color: #000;
-}
-
-a.plan-control-button:active {
-    background: #fffacd; /* lemonchiffon */
-    color: #000;
-}
-
-a.plan-control-button:visited {
-    background: #fffacd; /* lemonchiffon */
-    color: #000;
-}
-
+a.plan-control-button:link,
+a.plan-control-button:active,
+a.plan-control-button:visited,
 a.plan-control-button:hover {
     background: #fffacd; /* lemonchiffon */
     color: #000;
@@ -29,10 +17,11 @@ a.plan-control-button:hover {
 
 .plan-controls-bottom-separator {
     margin-top: 0;
-    margin-bottom: 0;
+    /*margin-bottom: 0;*/
 }
 
-.pregnancy-plan-section {
+.pregnancy-plan-section,
+.pregnancy-plan-panel {
     background-color: #87cefa; /* lightskyblue */
 }
 
@@ -40,6 +29,11 @@ a.plan-control-button:hover {
     margin: 0 1rem 0;
 }
 
-.birth-plan-section {
+.plan-panel-title {
+    text-align: center;
+}
+
+.birth-plan-section,
+.birth-plan-panel {
     background-color: #ffc0cb; /* pink */
 }
