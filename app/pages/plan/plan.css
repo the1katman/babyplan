@@ -15,7 +15,7 @@
 .plan-control-button:active,
 .plan-control-button:visited,
 .plan-control-button:hover {
-    background: mediumslateblue;
+    background: #6495ed; /* cornflowerblue */
     color: #000;
 }
 
