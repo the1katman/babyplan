@@ -27,12 +27,28 @@
     background: #ffff00; /* yellow */
 }
 
-.appointment-row {
+.f-dropdown li a {
+    display: inline-block;
+}
+
+.category-dropdown-icon {
+    margin-left: 1rem;
+}
+
+.category-dropdown-all-item {
+    margin-left: 2rem;
+}
+
+.category-row {
     line-height: 1.5rem;
 }
 
-.appointment-row-icon-panel {
+.category-row-icon-panel {
     text-align: center;
+}
+
+.nutrition-panel {
+    background: #adff2f; /* greenyellow */
 }
 
 .plan-controls-bottom-separator {
