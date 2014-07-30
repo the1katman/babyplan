@@ -47,8 +47,9 @@
     text-align: center;
 }
 
-.nutrition-panel {
-    background: #adff2f; /* greenyellow */
+.nutrition-control-item,
+.nutrition-row {
+    background: #32cd32; /* limegreen */
 }
 
 .plan-controls-bottom-separator {
