@@ -4,17 +4,46 @@ var babyPlanApp = angular.module('BabyPlanApp', []);
 
 babyPlanApp.controller('BabyPlanController', function ($scope) {
 
-    $scope.showNutritionCategory = false;
-    $scope.showAppointmentsCategory = false;
+    $scope.appointmentsCategorySelected = false;
+    $scope.nutritionCategorySelected = false;
 
-    $scope.selectCategory = function (selectedCategory) {
-        if ('all' === selectedCategory) {
-            $scope.showNutritionCategory = true;
-            $scope.showAppointmentsCategory = true;
-        } else {
-            $scope.showNutritionCategory = 'nutrition' === selectedCategory;
-            $scope.showAppointmentsCategory = 'appointments' === selectedCategory;
-        }
+    $scope.categorySelected = function () {
+        var selectedCategories = getSelectedCategories();
+        $scope.selectedCategories = getSelectedCategoriesString(selectedCategories);
     };
+
+    function getSelectedCategories() {
+        var selectedCategories = [];
+
+        if ($scope.appointmentsCategorySelected === true) {
+            selectedCategories.push("Appointments");
+        }
+        if ($scope.nutritionCategorySelected === true) {
+            selectedCategories.push("Nutrition");
+        }
+
+        return selectedCategories;
+    }
+
+    function getSelectedCategoriesString(selectedCategories) {
+        var selectedCategoriesString = '';
+
+        var numCategories = selectedCategories.length;
+        if (numCategories > 0) {
+            var isFirst = true;
+            for (var i = 0; i < numCategories; i++) {
+                if (!isFirst) {
+                    selectedCategoriesString += ", ";
+                } else {
+                    isFirst = false;
+                }
+                selectedCategoriesString += selectedCategories[i];
+            }
+        }
+
+        return selectedCategoriesString;
+    }
+
+    $scope.categorySelected();
 
 });

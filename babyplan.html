@@ -54,10 +54,10 @@
     <div class="small-12 columns">
         <div class="row plan-control-panel">
             <div class="small-4 medium-2 columns plan-control-selector">
-                <a href="#">Categories</a>
+                <a href="#" data-dropdown="categories-dropdown">Categories</a>
             </div>
             <div class="small-8 medium-10 columns">
-                Appointments
+                {{ selectedCategories }}
             </div>
         </div>
         <div class="row plan-control-panel">
@@ -67,6 +67,19 @@
             <div class="small-8 medium-10 columns">
                 Summary
             </div>
+        </div>
+        <div id="categories-dropdown" data-dropdown-content class="f-dropdown content">
+            <input id="appointments-selected" type="checkbox"
+                    ng-checked="appointmentsCategorySelected"
+                    ng-model="appointmentsCategorySelected"
+                    ng-change="categorySelected()">
+            <label for="appointments-selected">Appointments</label>
+            <br/>
+            <input id="nutrition-selected" type="checkbox"
+                    ng-checked="nutritionCategorySelected"
+                    ng-model="nutritionCategorySelected"
+                    ng-change="categorySelected()">
+            <label for="nutrition-selected">Nutrition</label>
         </div>
     </div>
 </div>
@@ -88,7 +101,7 @@
     Weeks 1 - 2: The Beginning
 </h4>
 
-<div ng-show="showNutritionCategory" class="row category-row nutrition-row">
+<div ng-show="nutritionCategorySelected" class="row category-row nutrition-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-trees"></i>
     </div>
@@ -108,7 +121,7 @@
     Weeks 3 - 8: An Embryo
 </h4>
 
-<div ng-show="showNutritionCategory" class="row category-row nutrition-row">
+<div ng-show="nutritionCategorySelected" class="row category-row nutrition-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-trees"></i>
     </div>
@@ -124,7 +137,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -144,7 +157,7 @@
     Weeks 9 - 12: A Fetus
 </h4>
 
-<div ng-show="showNutritionCategory" class="row category-row nutrition-row">
+<div ng-show="nutritionCategorySelected" class="row category-row nutrition-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-trees"></i>
     </div>
@@ -160,7 +173,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -184,7 +197,7 @@
     Weeks 13 - 27: "Golden" Period
 </h4>
 
-<div ng-show="showNutritionCategory" class="row category-row nutrition-row">
+<div ng-show="nutritionCategorySelected" class="row category-row nutrition-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-trees"></i>
     </div>
@@ -200,7 +213,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -216,7 +229,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -232,7 +245,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -256,7 +269,7 @@
     Weeks 28 - 40 (Birth): The Finale
 </h4>
 
-<div ng-show="showNutritionCategory" class="row category-row nutrition-row">
+<div ng-show="nutritionCategorySelected" class="row category-row nutrition-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-trees"></i>
     </div>
@@ -272,7 +285,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -288,7 +301,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -304,7 +317,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -320,7 +333,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -336,7 +349,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -352,7 +365,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -368,7 +381,7 @@
     </div>
 </div>
 
-<div ng-show="showAppointmentsCategory" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
