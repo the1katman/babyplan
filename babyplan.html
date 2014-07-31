@@ -47,55 +47,25 @@
 <section>
 <h1>Baby Plan</h1>
 
-<hr/>
+<hr class="plan-controls-top-separator"/>
 
 <!-- plan controls -->
 <div class="row">
-    <div class="small-12 medium-6 columns">
-        <div class="row">
-            <div class="small-3 columns">
-                <span class="plan-control-label">
-                    Timeline
-                </span>
+    <div class="small-12 columns">
+        <div class="row plan-control-panel">
+            <div class="small-4 medium-2 columns plan-control-selector">
+                <a href="#">Categories</a>
             </div>
-            <div class="small-9 columns">
-                <a href="#" data-dropdown="view-dropdown"
-                   class="button dropdown small radius plan-control-button">Summary</a>
-                <br/>
-                <ul id="view-dropdown" data-dropdown-content class="f-dropdown">
-                    <li>
-                        <a href="#">Recurring</a>
-                    </li>
-                    <li>
-                        <a href="#">Complete</a>
-                    </li>
-                </ul>
+            <div class="small-8 medium-10 columns">
+                Appointments
             </div>
         </div>
-    </div>
-    <div class="small-12 medium-6 columns">
-        <div class="row">
-            <div class="small-3 columns">
-                <span class="plan-control-label">
-                    Category
-                </span>
+        <div class="row plan-control-panel">
+            <div class="small-4 medium-2 columns plan-control-selector">
+                <a href="#">View</a>
             </div>
-            <div class="small-9 columns">
-                <a href="#" data-dropdown="category-dropdown" ng-init="showAppointmentsCategory=true;" ng-click="selectCategory('appointments')"
-                   class="button dropdown small radius plan-control-button appointments-control-button">
-                    <i class="fi-clock"></i>
-                    <span class="plan-control-button-label">Appointments</span>
-                </a>
-                <br/>
-                <ul id="category-dropdown" data-dropdown-content class="f-dropdown">
-                    <li class="nutrition-control-item">
-                        <i class="fi-trees category-dropdown-icon"></i>
-                        <a href="#" ng-click="selectCategory('nutrition')">Nutrition</a>
-                    </li>
-                    <li>
-                        <a href="#" ng-click="selectCategory('all')" class="category-dropdown-all-item">All</a>
-                    </li>
-                </ul>
+            <div class="small-8 medium-10 columns">
+                Summary
             </div>
         </div>
     </div>
