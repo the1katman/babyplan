@@ -25,7 +25,7 @@ angular
                             return value;
                         },
                         set: function (key, value) {
-                            localStorage.setItem(name, JSON.stringify(value));
+                            localStorage.setItem(key, JSON.stringify(value));
                         }
                     };
                 } ]);

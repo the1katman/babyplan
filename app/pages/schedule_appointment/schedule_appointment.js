@@ -1,7 +1,12 @@
 "use strict";
 
 angular
-        .module('BabyPlanApp', [])
-        .controller('ScheduleAppointmentController', function ($scope) {
+        .module('BabyPlanApp', ['localStorage'])
+        .controller('ScheduleAppointmentController',
+                [ '$scope', 'localStorageService', function ($scope, localStorageService) {
 
-        });
+                    $scope.selectDoctor = function (doctorLastName) {
+                        localStorageService.set('doctorLastName', doctorLastName);
+                    };
+
+                } ]);

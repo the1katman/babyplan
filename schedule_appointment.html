@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="img/favicon/yy_16x16.ico"/>
 
     <script src="js/angular.min.js" type="text/javascript"></script>
+    <script src="app/common/localStorage.js" type="text/javascript"></script>
     <script src="app/pages/schedule_appointment/schedule_appointment.js" type="text/javascript"></script>
 
     <script src="js/modernizr.js"></script>
@@ -59,7 +60,7 @@
                         </h3>
                     </div>
                     <div class="medium-3 large-2 columns hide-for-small online-now-button-panel">
-                        <a class="button tiny radius online-now-button online-now-active">Online Now</a>
+                        <a ng-click="selectDoctor('huxtable')" class="button tiny radius online-now-button online-now-active">Online Now</a>
                     </div>
                 </div>
 
@@ -103,7 +104,7 @@
                         </h3>
                     </div>
                     <div class="medium-3 large-2 columns hide-for-small online-now-button-panel">
-                        <a class="button tiny radius online-now-button online-now-active">Online Now</a>
+                        <a ng-click="selectDoctor('house')" class="button tiny radius online-now-button online-now-active">Online Now</a>
                     </div>
                 </div>
 
@@ -146,7 +147,7 @@
                         </h3>
                     </div>
                     <div class="medium-3 large-2 columns hide-for-small online-now-button-panel">
-                        <a class="button tiny radius online-now-button online-now-active">Online Now</a>
+                        <a ng-click="selectDoctor('j')" class="button tiny radius online-now-button online-now-active">Online Now</a>
                     </div>
                 </div>
 
