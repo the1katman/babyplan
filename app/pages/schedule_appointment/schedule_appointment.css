@@ -1,0 +1,31 @@
+.online-now-button-panel {
+    text-align: right;
+}
+
+.online-now-button {
+    margin-bottom: 0;
+}
+
+a.online-now-active:link,
+a.online-now-active:active,
+a.online-now-active:visited,
+a.online-now-active:hover,
+.online-now-active {
+    background-color: #32cd32; /* lime green */
+}
+
+.rating-color {
+    color: #ffd700; /* gold */
+}
+
+.media-content-panel {
+    margin-top: 1rem;
+}
+
+.specialities-content {
+    margin-bottom: 1rem;
+}
+
+.distance-text {
+    color: #808080; /* grey */
+}

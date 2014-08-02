@@ -2,13 +2,11 @@ var ngTestingApp = angular.module('ngTestingApp', [ 'appStorage' ]);
 
 ngTestingApp
         .controller('AppStorageController',
-                [ '$scope', '$window', 'appStorage', function ($scope, $window, appStorage) {
+                [ '$scope', '$window', 'localStorageService', function ($scope, $window, localStorageService) {
                     "use strict";
 
-                    var appStorageInstance = appStorage('MyAppStorage', 'ngTestAppStorage', $scope);
-
                     $scope.clearAppStorage = function () {
-                        appStorageInstance.clear();
+                        localStorageService.clear();
                     };
 
                     $scope.reloadPage = function () {
@@ -20,9 +18,7 @@ ngTestingApp
 
 ngTestingApp
         .controller('OtherController',
-                [ '$scope', 'appStorage', function ($scope, appStorage) {
+                [ '$scope', function ($scope) {
                     "use strict";
-
-                    appStorage('MyAppStorage', 'ngTestAppStorage', $scope);
                     $scope.ngTestAppStorage.options = $scope.ngTestAppStorage.options || [];
                 } ]);
