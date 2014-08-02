@@ -70,15 +70,15 @@
         </div>
         <div id="categories-dropdown" data-dropdown-content class="f-dropdown content">
             <input id="appointments-selected" type="checkbox"
-                    ng-checked="appointmentsCategorySelected"
-                    ng-model="appointmentsCategorySelected"
-                    ng-change="categorySelected()">
+                   ng-checked="appointmentsCategorySelected"
+                   ng-model="appointmentsCategorySelected"
+                   ng-change="categorySelected()">
             <label for="appointments-selected">Appointments</label>
             <br/>
             <input id="nutrition-selected" type="checkbox"
-                    ng-checked="nutritionCategorySelected"
-                    ng-model="nutritionCategorySelected"
-                    ng-change="categorySelected()">
+                   ng-checked="nutritionCategorySelected"
+                   ng-model="nutritionCategorySelected"
+                   ng-change="categorySelected()">
             <label for="nutrition-selected">Nutrition</label>
         </div>
     </div>
@@ -138,17 +138,13 @@
 </div>
 
 <div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
-    <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
+    <div class="small-2 medium-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
-    <div class="small-4 medium-3 large-2 columns">
+    <div class="small-10 medium-11 columns">
         <h5>
-            Week 8
-        </h5>
-    </div>
-    <div class="small-6 medium-8 large-9 columns">
-        <h5>
-            Baby Appointment # 1
+            <a href="#">Schedule an appointment</a><br/>
+            Week 8<br/>
         </h5>
     </div>
 </div>
@@ -173,7 +169,7 @@
     </div>
 </div>
 
-<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -213,7 +209,7 @@
     </div>
 </div>
 
-<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -229,7 +225,7 @@
     </div>
 </div>
 
-<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -245,7 +241,7 @@
     </div>
 </div>
 
-<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -285,7 +281,7 @@
     </div>
 </div>
 
-<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -301,7 +297,7 @@
     </div>
 </div>
 
-<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -317,7 +313,7 @@
     </div>
 </div>
 
-<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -333,7 +329,7 @@
     </div>
 </div>
 
-<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -349,7 +345,7 @@
     </div>
 </div>
 
-<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -365,7 +361,7 @@
     </div>
 </div>
 
-<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>
@@ -381,7 +377,7 @@
     </div>
 </div>
 
-<div ng-show="appointmentsCategorySelected" class="row category-row appointment-row">
+<div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row category-row appointment-row">
     <div class="small-2 medium-1 large-1 columns category-row-icon-panel">
         <i class="fi-clock"></i>
     </div>

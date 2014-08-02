@@ -4,7 +4,7 @@ var babyPlanApp = angular.module('BabyPlanApp', []);
 
 babyPlanApp.controller('BabyPlanController', function ($scope) {
 
-    $scope.appointmentsCategorySelected = false;
+    $scope.appointmentsCategorySelected = true;
     $scope.nutritionCategorySelected = false;
 
     $scope.categorySelected = function () {
