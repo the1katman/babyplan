@@ -14,13 +14,14 @@ angular
 
                     return {
                         get: function (key) {
-                            var valueString = localStorage.getItem(key);
-                            var value = {};
-                            try {
-                                value = valueString ? JSON.parse(valueString) : {};
-                            }
-                            catch (e) {
-                                console.log('Parse error for localStorage ' + key);
+                            var value = localStorage.getItem(key);
+                            if (value) {
+                                try {
+                                    value = JSON.parse(value);
+                                } catch (e) {
+                                    console.log('An exception was caught while trying to parse JSON from local storage [key=' + key + ', value=' + value + '].');
+                                    value = null;
+                                }
                             }
                             return value;
                         },
