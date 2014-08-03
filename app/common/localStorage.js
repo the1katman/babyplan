@@ -8,8 +8,24 @@ angular
                     //noinspection JSUnresolvedVariable
                     var localStorage = $window.localStorage;
 
-                    if (!localStorage) {
-                        throw new Error('Could not find suitable storage');
+                    var isLocalStorageSupported = initLocalStorageSupport();
+
+                    function initLocalStorageSupport() {
+                        var localStorageSupport = false;
+                        if (localStorage) {
+                            var test = 'test';
+                            try {
+                                localStorage.setItem(test, test);
+                                localStorage.removeItem(test);
+                                localStorageSupport = true;
+                            } catch (e) {
+                            }
+                        }
+                        return localStorageSupport;
+                    }
+
+                    if (!isLocalStorageSupported) {
+                        throw new Error('Local storage is not supported.');
                     }
 
                     return {
