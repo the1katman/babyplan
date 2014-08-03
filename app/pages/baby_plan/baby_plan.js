@@ -1,7 +1,7 @@
 "use strict";
 
 angular
-        .module('BabyPlanApp', ['localStorage', 'firstLetterCapitalizeFilter'])
+        .module('BabyPlanApp', ['localStorage', 'firstLetterCapitalize'])
         .controller('BabyPlanController',
                 [ '$scope', 'localStorageService', function ($scope, localStorageService) {
 

@@ -1,7 +1,7 @@
 "use strict";
 
 angular
-        .module('firstLetterCapitalizeFilter', [])
+        .module('firstLetterCapitalize', [])
         .filter('firstLetterCapitalize', function () {
             return function (input) {
                 if (input != null) {
