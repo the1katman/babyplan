@@ -44,3 +44,11 @@
 .category-row-icon-panel {
     text-align: center;
 }
+
+.appointment-timestamp {
+    font-size: 0.85rem
+}
+
+.category-row-inactive {
+    color: grey;
+}
