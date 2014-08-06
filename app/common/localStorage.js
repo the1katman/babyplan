@@ -43,6 +43,9 @@ angular
                         },
                         set: function (key, value) {
                             localStorage.setItem(key, JSON.stringify(value));
+                        },
+                        clear: function() {
+                            localStorage.clear();
                         }
                     };
                 } ]);

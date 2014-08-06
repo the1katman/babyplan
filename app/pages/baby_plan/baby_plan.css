@@ -1,5 +1,23 @@
+.baby-plan-heading {
+    display: inline;
+}
+
+.reset-plan-button {
+    margin-left: 1.75rem;
+    vertical-align: middle;
+}
+
+a.reset-plan-button:link,
+a.reset-plan-button:active,
+a.reset-plan-button:visited,
+a.reset-plan-button:hover,
+.reset-plan-button {
+    background-color: #6495ed; /* cornflowerblue */
+}
+
 .plan-controls-top-separator,
 .row .row.plan-control-panel {
+    margin-top: 0;
     margin-bottom: 0.5rem;
 }
 

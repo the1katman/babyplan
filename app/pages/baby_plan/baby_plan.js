@@ -20,6 +20,11 @@ angular
                         $scope.selectedCategories = getSelectedCategoriesString(selectedCategories);
                     };
 
+                    $scope.resetPlan = function() {
+                        localStorageService.clear();
+                        $scope.hadFirstAppointment = false;
+                    };
+
                     function getSelectedCategories() {
                         var selectedCategories = [];
 
