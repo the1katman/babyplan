@@ -1,4 +1,8 @@
-.baby-plan-heading {
+.row .row {
+    margin: 0;
+}
+
+.baby-plan-title {
     display: inline;
 }
 
@@ -12,10 +16,10 @@ a.reset-plan-button:active,
 a.reset-plan-button:visited,
 a.reset-plan-button:hover,
 .reset-plan-button {
-    background-color: #6495ed; /* cornflowerblue */
+    background: #6495ed; /* cornflowerblue */
 }
 
-.plan-controls-top-separator,
+.section-top-separator,
 .row .row.plan-control-panel {
     margin-top: 0;
     margin-bottom: 0.5rem;
@@ -29,26 +33,23 @@ a.reset-plan-button:hover,
     margin-top: 0;
 }
 
-.plan-section-title {
-    margin: 0 1rem 0;
+.section-panel {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
 }
 
 .plan-panel-title {
     text-align: center;
 }
 
+.pre-pregnancy-plan-section,
+.pre-pregnancy-plan-panel {
+    background: #ffffe0; /* lightyellow */
+}
+
 .pregnancy-plan-section,
 .pregnancy-plan-panel {
-    background-color: #87cefa; /* lightskyblue */
-}
-
-.birth-plan-section,
-.birth-plan-panel {
-    background-color: #ffc0cb; /* pink */
-}
-
-.category-row {
-    line-height: 1.5rem;
+    background: #87cefa; /* lightskyblue */
 }
 
 .appointment-row {
@@ -60,13 +61,14 @@ a.reset-plan-button:hover,
 }
 
 .category-row-icon-panel {
+    line-height: 1.75rem;
     text-align: center;
+}
+
+.category-row-content-panel {
+    line-height: 1.25rem;
 }
 
 .appointment-timestamp {
     font-size: 0.85rem
-}
-
-.category-row-inactive {
-    color: grey;
 }
