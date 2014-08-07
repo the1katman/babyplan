@@ -81,53 +81,8 @@
 
     <hr class="plan-controls-bottom-separator"/>
 
-    <!-- pre-pregnancy section -->
-    <div class="row">
-        <div class="column section-panel pre-pregnancy-plan-panel">
-            <h2>
-                Pre-Pregnancy
-            </h2>
-
-            <hr class="section-top-separator"/>
-
-            <h4>
-                Week 0: Discovery
-            </h4>
-
-            <div ng-show="nutritionCategorySelected" class="row nutrition-row">
-                <div class="small-2 medium-1 columns category-row-icon-panel">
-                    <i class="fi-trees"></i>
-                </div>
-                <div class="small-10 medium-11 columns">
-                    <h5 class="category-row-content-panel">
-                        Week 0<br/>
-                        1887 calories / day
-                    </h5>
-                </div>
-            </div>
-
-            <div ng-show="appointmentsCategorySelected" class="row appointment-row">
-                <div class="small-2 medium-1 columns category-row-icon-panel">
-                    <i class="fi-clock"></i>
-                </div>
-                <div class="small-10 medium-11 columns">
-                    <h5 class="category-row-content-panel">
-                    <span ng-if="!hadFirstAppointment">
-                        Week 0 - Are you pregnant?<br/>
-                        <a href="schedule_appointment.html">Schedule Baby Appointment #1</a><br/>
-                    </span>
-                    <span ng-if="hadFirstAppointment">
-                        Baby Appointment #1 with {{ widwifeFirstName | firstLetterCapitalize }} {{ widwifeLastName | firstLetterCapitalize }}<br/>
-                        <span class="appointment-timestamp">{{ firstAppointmentDate | date:'hh:mm a' }} on {{ firstAppointmentDate | date:'EEE, MMM dd yyyy' }}</span>
-                    </span>
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- pregnancy section -->
-    <div ng-if="hadFirstAppointment" class="row">
+    <div class="row">
         <div class="column section-panel pregnancy-plan-panel">
             <h2>
                 Pregnancy
@@ -167,6 +122,24 @@
                     <h5 class="category-row-content-panel">
                         Weeks 3 - 8<br/>
                         1887 calories / day
+                    </h5>
+                </div>
+            </div>
+
+            <div ng-show="appointmentsCategorySelected" class="row appointment-row">
+                <div class="small-2 medium-1 columns category-row-icon-panel">
+                    <i class="fi-clock"></i>
+                </div>
+                <div class="small-10 medium-11 columns">
+                    <h5 class="category-row-content-panel">
+                    <span ng-if="!hadFirstAppointment">
+                        Week 4<br/>
+                        <a href="find_midwife.html">Schedule Baby Appointment #1</a><br/>
+                    </span>
+                    <span ng-if="hadFirstAppointment">
+                        Baby Appointment #1 with {{ midwifeFirstName | firstLetterCapitalize }} {{ midwifeLastName | firstLetterCapitalize }}<span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span><br/>
+                        <span class="appointment-timestamp">{{ firstAppointmentDate | date:'hh:mm a' }} on {{ firstAppointmentDate | date:'EEE, MMM dd yyyy' }}</span>
+                    </span>
                     </h5>
                 </div>
             </div>

@@ -11,7 +11,7 @@ a.online-now-active:active,
 a.online-now-active:visited,
 a.online-now-active:hover,
 .online-now-active {
-    background-color: #32cd32; /* lime green */
+    background: #32cd32; /* lime green */
 }
 
 .rating-color {
@@ -22,10 +22,6 @@ a.online-now-active:hover,
     margin-top: 1rem;
 }
 
-.specialities-content {
+.credentials-content {
     margin-bottom: 1rem;
-}
-
-.distance-text {
-    color: #808080; /* grey */
 }

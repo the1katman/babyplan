@@ -11,7 +11,10 @@ angular
                     var firstAppointmentDate = getFirstAppointmentDate();
                     $scope.hadFirstAppointment = firstAppointmentDate !== null;
                     if ($scope.hadFirstAppointment) {
-                        $scope.doctorLastName = localStorageService.get('doctorLastName');
+                        $scope.midwifeFirstName = localStorageService.get('midwifeFirstName');
+                        $scope.midwifeLastName = localStorageService.get('midwifeLastName');
+                        $scope.midwifeCredentials = localStorageService.get('midwifeCredentials');
+
                         $scope.firstAppointmentDate = firstAppointmentDate;
                     }
 

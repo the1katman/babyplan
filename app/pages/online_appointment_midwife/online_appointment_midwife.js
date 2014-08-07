@@ -5,7 +5,9 @@ angular
         .controller('OnlineAppointmentController',
                 [ '$scope', 'localStorageService', function ($scope, localStorageService) {
 
-                    $scope.doctorLastName = localStorageService.get('doctorLastName');
+                    $scope.midwifeFirstName = localStorageService.get('midwifeFirstName');
+                    $scope.midwifeLastName = localStorageService.get('midwifeLastName');
+                    $scope.midwifeCredentials = localStorageService.get('midwifeCredentials');
 
                     localStorageService.set('firstAppointmentDate', new Date().toJSON());
 

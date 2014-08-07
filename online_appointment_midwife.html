@@ -4,20 +4,20 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>YutYut Health - Online Appointment</title>
+    <title>YutYut Health - Baby Appointment # 1</title>
 
     <link rel="stylesheet" href="css/foundation/foundation.css"/>
     <link rel="stylesheet" href="css/foundation/icons/foundation-icons.css"/>
     <link rel="stylesheet" href="app/common/main.css"/>
 
-    <link rel="stylesheet" href="app/pages/online_appointment/online_appointment.css"/>
+    <link rel="stylesheet" href="app/pages/online_appointment_midwife/online_appointment_midwife.css"/>
 
     <link rel="shortcut icon" href="img/favicon/yy_16x16.ico"/>
 
     <script src="js/angular.min.js" type="text/javascript"></script>
     <script src="app/common/localStorage.js" type="text/javascript"></script>
     <script src="app/common/filter/firstLetterCapitalize.js" type="text/javascript"></script>
-    <script src="app/pages/online_appointment/online_appointment.js" type="text/javascript"></script>
+    <script src="app/pages/online_appointment_midwife/online_appointment_midwife.js" type="text/javascript"></script>
 
     <script src="js/modernizr.js"></script>
 </head>
@@ -49,22 +49,23 @@
         <!-- main content -->
         <section>
             <h1>
-                Online Appointment
+                Baby Appointment # 1
             </h1>
+
             <hr/>
 
-            <h3 class="doctor-online-appointment-label">
-                Dr. {{ doctorLastName | firstLetterCapitalize }}
+            <h3 class="online-appointment-midwife-label">
+                {{ midwifeFirstName | firstLetterCapitalize }} {{ midwifeLastName | firstLetterCapitalize }}<span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span>
             </h3>
 
-            <div class="doctor-online-appointment-image-panel">
-                <img data-interchange="[img/doctor_online_appointment/doctor_online_appointment_880x495.jpg, (only screen)], [img/doctor_online_appointment/doctor_online_appointment_250x141.jpg, (small)], [img/doctor_online_appointment/doctor_online_appointment_648x365.jpg, (medium)]]">
+            <div class="online-appointment-midwife-image-panel">
+                <img data-interchange="[img/online_appointment_midwife/online_appointment_midwife_880x581.jpg, (only screen)], [img/online_appointment_midwife/online_appointment_midwife_250x165.jpg, (small)], [img/online_appointment_midwife/online_appointment_midwife_648x428.jpg, (medium)]]">
                 <noscript>
-                    <img src="img/doctor_online_appointment/doctor_online_appointment_880x495.jpg">
+                    <img src="img/online_appointment_midwife/online_appointment_midwife_880x581.jpg">
                 </noscript>
             </div>
 
-            <hr />
+            <hr/>
 
             <div class="baby-plan-button-panel">
                 <a href="baby_plan.html" class="button small radius">Return to Your Baby Plan</a>

@@ -42,11 +42,6 @@ a.reset-plan-button:hover,
     text-align: center;
 }
 
-.pre-pregnancy-plan-section,
-.pre-pregnancy-plan-panel {
-    background: #ffffe0; /* lightyellow */
-}
-
 .pregnancy-plan-section,
 .pregnancy-plan-panel {
     background: #87cefa; /* lightskyblue */

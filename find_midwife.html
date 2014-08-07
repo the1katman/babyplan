@@ -4,24 +4,24 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>YutYut Health - Schedule An Appointment</title>
+    <title>YutYut Health - Find Your Midwife</title>
 
     <link rel="stylesheet" href="css/foundation/foundation.css"/>
     <link rel="stylesheet" href="css/foundation/icons/foundation-icons.css"/>
     <link rel="stylesheet" href="app/common/main.css"/>
 
-    <link rel="stylesheet" href="app/pages/schedule_appointment/schedule_appointment.css"/>
+    <link rel="stylesheet" href="app/pages/find_midwife/find_midwife.css"/>
 
     <link rel="shortcut icon" href="img/favicon/yy_16x16.ico"/>
 
     <script src="js/angular.min.js" type="text/javascript"></script>
     <script src="app/common/localStorage.js" type="text/javascript"></script>
-    <script src="app/pages/schedule_appointment/schedule_appointment.js" type="text/javascript"></script>
+    <script src="app/pages/find_midwife/find_midwife.js" type="text/javascript"></script>
 
     <script src="js/modernizr.js"></script>
 </head>
 
-<body ng-controller="ScheduleAppointmentController">
+<body ng-controller="FindMidwifeController">
 
 <div class="row">
     <div class="small-12 columns">
@@ -48,19 +48,21 @@
         <!-- main content -->
         <section>
             <h1>
-                Schedule An Appointment
+                Find Your Midwife
             </h1>
+
             <hr/>
 
             <div class="panel radius">
                 <div class="row">
                     <div class="small-12 medium-9 large-10 columns">
                         <h3>
-                            Dr. Heathcliff "Cliff" Huxtable
+                            Elizabeth Sloane
                         </h3>
                     </div>
                     <div class="medium-3 large-2 columns hide-for-small online-now-button-panel">
-                        <a href="online_appointment.html" ng-click="selectDoctor('huxtable')" class="button tiny radius online-now-button online-now-active">Online Now</a>
+                        <a href="online_appointment_midwife.html" ng-click="selectMidwife('elizabeth', 'sloane', 'rn, lm, cpm')"
+                           class="button tiny radius online-now-button online-now-active">Online Now</a>
                     </div>
                 </div>
 
@@ -73,7 +75,8 @@
                         <i class="fi-star rating-color"></i>
                     </div>
                     <div class="small-6 columns show-for-small online-now-button-panel">
-                        <a href="online_appointment.html" ng-click="selectDoctor('huxtable')" class="button tiny radius online-now-button online-now-active">Online Now</a>
+                        <a href="online_appointment_midwife.html" ng-click="selectMidwife('elizabeth', 'sloane', 'rn, lm, cpm')"
+                           class="button tiny radius online-now-button online-now-active">Online Now</a>
                     </div>
                 </div>
 
@@ -84,13 +87,9 @@
                             <noscript><img src="img/no_photo/caduceus_90x107.jpg"></noscript>
                         </div>
                         <div class="small-8 medium-10 columns">
-                            <h5 class="specialities-content">
-                                Specialties: Obstetrics / Gynaecology
+                            <h5 class="credentials-content">
+                                Credentials: RN, LM, CPM
                             </h5>
-                            <h6 class="show-for-medium-up">
-                                Columbia University Medical Center<br/>
-                                <span class="distance-text">~(3000 mi)</span>
-                            </h6>
                         </div>
                     </div>
                 </div>
@@ -100,11 +99,12 @@
                 <div class="row">
                     <div class="small-12 medium-9 large-10 columns">
                         <h3>
-                            Dr. Gregory House
+                            Katherine Gonzaga
                         </h3>
                     </div>
                     <div class="medium-3 large-2 columns hide-for-small online-now-button-panel">
-                        <a href="online_appointment.html" ng-click="selectDoctor('house')" class="button tiny radius online-now-button online-now-active">Online Now</a>
+                        <a href="online_appointment_midwife.html" ng-click="selectMidwife('katherine', 'gonzaga')"
+                           class="button tiny radius online-now-button online-now-active">Online Now</a>
                     </div>
                 </div>
 
@@ -116,7 +116,8 @@
                         <i class="fi-star rating-color"></i>
                     </div>
                     <div class="small-6 columns show-for-small online-now-button-panel">
-                        <a href="online_appointment.html" ng-click="selectDoctor('house')" class="button tiny radius online-now-button online-now-active">Online Now</a>
+                        <a href="online_appointment_midwife.html" ng-click="selectMidwife('katherine', 'gonzaga')"
+                           class="button tiny radius online-now-button online-now-active">Online Now</a>
                     </div>
                 </div>
 
@@ -127,13 +128,8 @@
                             <noscript><img src="img/no_photo/caduceus_90x107.jpg"></noscript>
                         </div>
                         <div class="small-8 medium-10 columns">
-                            <h5 class="specialities-content">
-                                Specialties: Infectious Diseases, Nephrology
+                            <h5 class="credentials-content">
                             </h5>
-                            <h6 class="show-for-medium-up">
-                                Princeton-Plainsboro Teaching Hospital<br/>
-                                <span class="distance-text">~(3000 mi)</span>
-                            </h6>
                         </div>
                     </div>
                 </div>
@@ -143,20 +139,24 @@
                 <div class="row">
                     <div class="small-12 medium-9 large-10 columns">
                         <h3>
-                            Dr. J
+                            Jennifer Wagner
                         </h3>
                     </div>
                     <div class="medium-3 large-2 columns hide-for-small online-now-button-panel">
-                        <a href="online_appointment.html" ng-click="selectDoctor('j')" class="button tiny radius online-now-button online-now-active">Online Now</a>
+                        <a href="online_appointment_midwife.html" ng-click="selectMidwife('jennifer', 'wagner', 'lm, cpm')"
+                           class="button tiny radius online-now-button online-now-active">Online Now</a>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="small-6 medium-12 columns">
                         <i class="fi-star rating-color"></i>
+                        <i class="fi-star rating-color"></i>
+                        <i class="fi-star rating-color"></i>
                     </div>
                     <div class="small-6 columns show-for-small online-now-button-panel">
-                        <a href="online_appointment.html" ng-click="selectDoctor('j')" class="button tiny radius online-now-button online-now-active">Online Now</a>
+                        <a href="online_appointment_midwife.html" ng-click="selectMidwife('jennifer', 'wagner', 'lm, cpm')"
+                           class="button tiny radius online-now-button online-now-active">Online Now</a>
                     </div>
                 </div>
 
@@ -167,13 +167,9 @@
                             <noscript><img src="img/no_photo/caduceus_90x107.jpg"></noscript>
                         </div>
                         <div class="small-8 medium-10 columns">
-                            <h5 class="specialities-content">
-                                Specialties: Balling out of control
+                            <h5 class="credentials-content">
+                                Credentials: LM, CPM
                             </h5>
-                            <h6 class="show-for-medium-up">
-                                A ballers court<br/>
-                                <span class="distance-text">(Unknown)</span>
-                            </h6>
                         </div>
                     </div>
                 </div>
