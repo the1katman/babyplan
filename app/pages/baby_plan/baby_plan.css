@@ -55,6 +55,19 @@ a.reset-plan-button:hover,
     background: #32cd32; /* limegreen */
 }
 
+.labs-row {
+    background: #4b0082; /* indigo */
+}
+
+.dark-row-panel {
+    color: #fff; /* white */
+    font-weight: 200;
+}
+
+.dark-row-panel > a:link {
+    color: #fff0f5; /* lavenderblush */
+}
+
 .category-row-icon-panel {
     line-height: 1.75rem;
     text-align: center;

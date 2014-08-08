@@ -70,6 +70,12 @@
                        ng-change="categorySelected()">
                 <label for="appointments-selected">Appointments</label>
                 <br/>
+                <input id="labs-selected" type="checkbox"
+                       ng-checked="labsCategorySelected"
+                       ng-model="labsCategorySelected"
+                       ng-change="categorySelected()">
+                <label for="labs-selected">Labs</label>
+                <br/>
                 <input id="nutrition-selected" type="checkbox"
                        ng-checked="nutritionCategorySelected"
                        ng-model="nutritionCategorySelected"
@@ -137,9 +143,22 @@
                         <a href="find_midwife.html">Schedule Baby Appointment #1</a><br/>
                     </span>
                     <span ng-if="hadFirstAppointment">
-                        Baby Appointment #1 with {{ midwifeFirstName | firstLetterCapitalize }} {{ midwifeLastName | firstLetterCapitalize }}<span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span><br/>
+                        Baby Appointment #1 with {{ midwifeFirstName | firstLetterCapitalize }} {{ midwifeLastName | firstLetterCapitalize }}<span
+                            ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span><br/>
                         <span class="appointment-timestamp">{{ firstAppointmentDate | date:'hh:mm a' }} on {{ firstAppointmentDate | date:'EEE, MMM dd yyyy' }}</span>
                     </span>
+                    </h5>
+                </div>
+            </div>
+
+            <div ng-show="labsCategorySelected && hadFirstAppointment" class="row labs-row">
+                <div class="small-2 medium-1 columns category-row-icon-panel dark-row-panel">
+                    <i class="fi-clipboard"></i>
+                </div>
+                <div class="small-10 medium-11 columns">
+                    <h5 class="category-row-content-panel dark-row-panel">
+                        Weeks 5 - 7<br/>
+                        <a href="#">Schedule Lab Appointment #1</a><br/>
                     </h5>
                 </div>
             </div>

@@ -6,7 +6,9 @@ angular
                 [ '$scope', 'localStorageService', function ($scope, localStorageService) {
 
                     $scope.appointmentsCategorySelected = true;
+                    $scope.labsCategorySelected = true;
                     $scope.nutritionCategorySelected = false;
+
 
                     var firstAppointmentDate = getFirstAppointmentDate();
                     $scope.hadFirstAppointment = firstAppointmentDate !== null;
@@ -36,6 +38,9 @@ angular
                         }
                         if ($scope.nutritionCategorySelected === true) {
                             selectedCategories.push("Nutrition");
+                        }
+                        if ($scope.labsCategorySelected === true) {
+                            selectedCategories.push("Labs");
                         }
 
                         return selectedCategories;
