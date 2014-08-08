@@ -1,0 +1,28 @@
+.content-item {
+    margin-left: 2rem;
+}
+
+.date-header {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.time-column {
+    text-align: center;
+}
+
+.time-slot {
+    width: 5rem;
+}
+
+.confirm-appointment-button-panel {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.schedule-appointment-notice {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    color: #808080; /* grey */
+}

@@ -9,7 +9,6 @@ angular
                     $scope.labsCategorySelected = true;
                     $scope.nutritionCategorySelected = false;
 
-
                     var firstAppointmentDate = getFirstAppointmentDate();
                     $scope.hadFirstAppointment = firstAppointmentDate !== null;
                     if ($scope.hadFirstAppointment) {
@@ -20,12 +19,18 @@ angular
                         $scope.firstAppointmentDate = firstAppointmentDate;
                     }
 
+                    var labAppointmentDate = getLabAppointmentDate();
+                    $scope.hasLabAppointment = labAppointmentDate !== null;
+                    if ($scope.hasLabAppointment) {
+                        $scope.labAppointmentDate = labAppointmentDate;
+                    }
+
                     $scope.categorySelected = function () {
                         var selectedCategories = getSelectedCategories();
                         $scope.selectedCategories = getSelectedCategoriesString(selectedCategories);
                     };
 
-                    $scope.resetPlan = function() {
+                    $scope.resetPlan = function () {
                         localStorageService.clear();
                         $scope.hadFirstAppointment = false;
                     };
@@ -77,6 +82,20 @@ angular
                         }
 
                         return firstAppointmentDate;
+                    }
+
+                    function getLabAppointmentDate() {
+                        var labAppointmentDate = localStorageService.get('labAppointmentDate');
+                        if (labAppointmentDate) {
+                            try {
+                                labAppointmentDate = new Date(labAppointmentDate);
+                            } catch (e) {
+                                console.log('An exception was caught while trying to parse the lab appointment date [' + labAppointmentDate + '].');
+                                labAppointmentDate = null;
+                            }
+                        }
+
+                        return labAppointmentDate;
                     }
 
                     $scope.categorySelected();
