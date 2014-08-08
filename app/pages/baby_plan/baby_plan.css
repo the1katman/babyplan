@@ -61,11 +61,6 @@ a.reset-plan-button:hover,
 
 .dark-row-panel {
     color: #fff; /* white */
-    font-weight: 200;
-}
-
-.dark-row-panel > a:link {
-    color: #fff0f5; /* lavenderblush */
 }
 
 .category-row-icon-panel {
