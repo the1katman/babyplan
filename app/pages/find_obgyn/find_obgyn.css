@@ -26,6 +26,11 @@ a.online-now-active:hover,
     margin-bottom: 1rem;
 }
 
-.distance-text {
-    color: #808080; /* grey */
+.schedule-appointment-button-panel {
+    text-align: right;
+}
+
+.schedule-appointment-button {
+    margin-top: 1rem;
+    margin-bottom: 0;
 }
