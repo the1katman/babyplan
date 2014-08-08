@@ -9,7 +9,7 @@ angular
                     $scope.labsCategorySelected = true;
                     $scope.nutritionCategorySelected = false;
 
-                    var firstAppointmentDate = getFirstAppointmentDate();
+                    var firstAppointmentDate = getDateFromLocalStorage('firstAppointmentDate');
                     $scope.hadFirstAppointment = firstAppointmentDate !== null;
                     if ($scope.hadFirstAppointment) {
                         $scope.midwifeFirstName = localStorageService.get('midwifeFirstName');
@@ -19,10 +19,20 @@ angular
                         $scope.firstAppointmentDate = firstAppointmentDate;
                     }
 
-                    var labAppointmentDate = getLabAppointmentDate();
-                    $scope.hasLabAppointment = labAppointmentDate !== null;
-                    if ($scope.hasLabAppointment) {
+                    var labAppointmentDate = getDateFromLocalStorage('labAppointmentDate');
+                    $scope.hasLabAppointmentDate = labAppointmentDate !== null;
+                    if ($scope.hasLabAppointmentDate) {
                         $scope.labAppointmentDate = labAppointmentDate;
+                    }
+
+                    var babyAppointment2Date = getDateFromLocalStorage('babyAppointment2Date');
+                    $scope.hasBabyAppointment2Date = babyAppointment2Date !== null;
+                    if ($scope.hasBabyAppointment2Date) {
+                        $scope.doctorFirstName = localStorageService.get('doctorFirstName');
+                        $scope.doctorLastName = localStorageService.get('doctorLastName');
+                        $scope.doctorCredentials = localStorageService.get('doctorCredentials');
+
+                        $scope.babyAppointment2Date = babyAppointment2Date;
                     }
 
                     $scope.categorySelected = function () {
@@ -41,11 +51,11 @@ angular
                         if ($scope.appointmentsCategorySelected === true) {
                             selectedCategories.push("Appointments");
                         }
-                        if ($scope.nutritionCategorySelected === true) {
-                            selectedCategories.push("Nutrition");
-                        }
                         if ($scope.labsCategorySelected === true) {
                             selectedCategories.push("Labs");
+                        }
+                        if ($scope.nutritionCategorySelected === true) {
+                            selectedCategories.push("Nutrition");
                         }
 
                         return selectedCategories;
@@ -70,32 +80,18 @@ angular
                         return selectedCategoriesString;
                     }
 
-                    function getFirstAppointmentDate() {
-                        var firstAppointmentDate = localStorageService.get('firstAppointmentDate');
-                        if (firstAppointmentDate) {
+                    function getDateFromLocalStorage(key) {
+                        var date = localStorageService.get(key);
+                        if (date) {
                             try {
-                                firstAppointmentDate = new Date(firstAppointmentDate);
+                                date = new Date(date);
                             } catch (e) {
-                                console.log('An exception was caught while trying to parse the first appointment date [' + firstAppointmentDate + '].');
-                                firstAppointmentDate = null;
+                                console.log('An exception was caught while trying to parse the date [' + date + '].');
+                                date = null;
                             }
                         }
 
-                        return firstAppointmentDate;
-                    }
-
-                    function getLabAppointmentDate() {
-                        var labAppointmentDate = localStorageService.get('labAppointmentDate');
-                        if (labAppointmentDate) {
-                            try {
-                                labAppointmentDate = new Date(labAppointmentDate);
-                            } catch (e) {
-                                console.log('An exception was caught while trying to parse the lab appointment date [' + labAppointmentDate + '].');
-                                labAppointmentDate = null;
-                            }
-                        }
-
-                        return labAppointmentDate;
+                        return date;
                     }
 
                     $scope.categorySelected();

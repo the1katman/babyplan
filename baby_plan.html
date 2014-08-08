@@ -47,199 +47,218 @@
 
 <!-- main content -->
 <section>
-    <h1 class="baby-plan-title">Baby Plan</h1>
-    <a href="#" ng-click="resetPlan()" class="button tiny radius reset-plan-button">Reset plan</a>
+<h1 class="baby-plan-title">Baby Plan</h1>
+<a href="#" ng-click="resetPlan()" class="button tiny radius reset-plan-button">Reset plan</a>
 
-    <hr class="section-top-separator"/>
+<hr class="section-top-separator"/>
 
-    <!-- plan controls -->
-    <div class="row">
-        <div class="column">
-            <div class="row plan-control-panel">
-                <div class="small-4 medium-2 columns plan-control-selector">
-                    <a href="#" data-dropdown="categories-dropdown">Categories</a>
-                </div>
-                <div class="small-8 medium-10 columns">
-                    {{ selectedCategories }}
-                </div>
+<!-- plan controls -->
+<div class="row">
+    <div class="column">
+        <div class="row plan-control-panel">
+            <div class="small-4 medium-2 columns plan-control-selector">
+                <a href="#" data-dropdown="categories-dropdown">Categories</a>
             </div>
-            <div id="categories-dropdown" data-dropdown-content class="f-dropdown content">
-                <input id="appointments-selected" type="checkbox"
-                       ng-checked="appointmentsCategorySelected"
-                       ng-model="appointmentsCategorySelected"
-                       ng-change="categorySelected()">
-                <label for="appointments-selected">Appointments</label>
-                <br/>
-                <input id="labs-selected" type="checkbox"
-                       ng-checked="labsCategorySelected"
-                       ng-model="labsCategorySelected"
-                       ng-change="categorySelected()">
-                <label for="labs-selected">Labs</label>
-                <br/>
-                <input id="nutrition-selected" type="checkbox"
-                       ng-checked="nutritionCategorySelected"
-                       ng-model="nutritionCategorySelected"
-                       ng-change="categorySelected()">
-                <label for="nutrition-selected">Nutrition</label>
+            <div class="small-8 medium-10 columns">
+                {{ selectedCategories }}
             </div>
         </div>
+        <div id="categories-dropdown" data-dropdown-content class="f-dropdown content">
+            <input id="appointments-selected" type="checkbox"
+                   ng-checked="appointmentsCategorySelected"
+                   ng-model="appointmentsCategorySelected"
+                   ng-change="categorySelected()">
+            <label for="appointments-selected">Appointments</label>
+            <br/>
+            <input id="labs-selected" type="checkbox"
+                   ng-checked="labsCategorySelected"
+                   ng-model="labsCategorySelected"
+                   ng-change="categorySelected()">
+            <label for="labs-selected">Labs</label>
+            <br/>
+            <input id="nutrition-selected" type="checkbox"
+                   ng-checked="nutritionCategorySelected"
+                   ng-model="nutritionCategorySelected"
+                   ng-change="categorySelected()">
+            <label for="nutrition-selected">Nutrition</label>
+        </div>
     </div>
+</div>
 
-    <hr class="plan-controls-bottom-separator"/>
+<hr class="plan-controls-bottom-separator"/>
 
-    <!-- pregnancy section -->
-    <div class="row">
-        <div class="column section-panel pregnancy-plan-panel">
-            <h2>
-                Pregnancy
-            </h2>
+<!-- pregnancy section -->
+<div class="row">
+    <div class="column section-panel pregnancy-plan-panel">
+        <h2>
+            Pregnancy
+        </h2>
 
-            <hr class="section-top-separator"/>
+        <hr class="section-top-separator"/>
 
-            <h3 class="plan-panel-title">
-                First Trimester
-            </h3>
+        <h3 class="plan-panel-title">
+            First Trimester
+        </h3>
 
-            <h4>
-                Weeks 1 - 2: The Beginning
-            </h4>
+        <h4>
+            Weeks 1 - 2: The Beginning
+        </h4>
 
-            <div ng-show="nutritionCategorySelected" class="row nutrition-row">
-                <div class="small-2 medium-1 columns category-row-icon-panel">
-                    <i class="fi-trees"></i>
-                </div>
-                <div class="small-10 medium-11 columns">
-                    <h5 class="category-row-content-panel">
-                        Weeks 1 - 2<br/>
-                        1887 calories / day
-                    </h5>
-                </div>
+        <div ng-show="nutritionCategorySelected" class="row nutrition-row">
+            <div class="small-2 medium-1 columns category-row-icon-panel">
+                <i class="fi-trees"></i>
             </div>
-
-            <h4>
-                Weeks 3 - 8: An Embryo
-            </h4>
-
-            <div ng-show="nutritionCategorySelected" class="row nutrition-row">
-                <div class="small-2 medium-1 columns category-row-icon-panel">
-                    <i class="fi-trees"></i>
-                </div>
-                <div class="small-10 medium-11 columns">
-                    <h5 class="category-row-content-panel">
-                        Weeks 3 - 8<br/>
-                        1887 calories / day
-                    </h5>
-                </div>
+            <div class="small-10 medium-11 columns">
+                <h5 class="category-row-content-panel">
+                    Weeks 1 - 2<br/>
+                    1887 calories / day
+                </h5>
             </div>
+        </div>
 
-            <div ng-show="appointmentsCategorySelected" class="row appointment-row">
-                <div class="small-2 medium-1 columns category-row-icon-panel">
-                    <i class="fi-clock"></i>
-                </div>
-                <div class="small-10 medium-11 columns">
-                    <h5 class="category-row-content-panel">
+        <h4>
+            Weeks 3 - 8: An Embryo
+        </h4>
+
+        <div ng-show="nutritionCategorySelected" class="row nutrition-row">
+            <div class="small-2 medium-1 columns category-row-icon-panel">
+                <i class="fi-trees"></i>
+            </div>
+            <div class="small-10 medium-11 columns">
+                <h5 class="category-row-content-panel">
+                    Weeks 3 - 8<br/>
+                    1887 calories / day
+                </h5>
+            </div>
+        </div>
+
+        <div ng-show="appointmentsCategorySelected" class="row appointment-row">
+            <div class="small-2 medium-1 columns category-row-icon-panel">
+                <i class="fi-clock"></i>
+            </div>
+            <div class="small-10 medium-11 columns">
+                <h5 class="category-row-content-panel">
                         <span ng-if="!hadFirstAppointment">
                             Week 4<br/>
                             <a href="find_midwife.html">Schedule Baby Appointment #1</a><br/>
                         </span>
                         <span ng-if="hadFirstAppointment">
-                            Baby Appointment #1 with {{ midwifeFirstName | firstLetterCapitalize }} {{ midwifeLastName | firstLetterCapitalize }}<span
-                                ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span><br/>
-                            <span class="appointment-timestamp">{{ firstAppointmentDate | date:'h:mm a' }} on {{ firstAppointmentDate | date:'EEE, MMM dd yyyy' }}</span>
-                        </span>
-                    </h5>
-                </div>
-            </div>
-
-            <div ng-show="labsCategorySelected && hadFirstAppointment" class="row labs-row">
-                <div class="small-2 medium-1 columns category-row-icon-panel dark-row-panel">
-                    <i class="fi-clipboard"></i>
-                </div>
-                <div class="small-10 medium-11 columns">
-                    <h5 class="category-row-content-panel dark-row-panel">
-                        <span ng-if="!hasLabAppointment">
-                            Weeks 5 - 7<br/>
-                            <a href="schedule_lab_appointment.html">Schedule Lab Appointment #1</a><br/>
-                        </span>
-                        <span ng-if="hasLabAppointment">
-                            Lab Appointment #1<br/>
+                            Baby Appointment #1<br/>
                             <span class="appointment-timestamp">
-                                <a href="schedule_lab_appointment.html">Scheduled for {{ labAppointmentDate | date:'h:mm a' }} on {{ labAppointmentDate | date:'EEE, MMM dd yyyy' }}</a>
+                                {{ firstAppointmentDate | date:'h:mm a' }}
+                                on {{ firstAppointmentDate | date:'EEE, MMM dd yyyy' }}
+                                with {{ midwifeFirstName | firstLetterCapitalize }}
+                                {{ midwifeLastName | firstLetterCapitalize }}<span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span>
                             </span>
                         </span>
-                    </h5>
-                </div>
+                </h5>
             </div>
+        </div>
 
-            <div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row appointment-row">
-                <div class="small-2 medium-1 columns category-row-icon-panel">
-                    <i class="fi-clock"></i>
-                </div>
-                <div class="small-10 medium-11 columns">
-                    <h5 class="category-row-content-panel">
-                        Week 8<br/>
+        <div ng-show="labsCategorySelected && hadFirstAppointment" class="row labs-row">
+            <div class="small-2 medium-1 columns category-row-icon-panel dark-row-panel">
+                <i class="fi-clipboard"></i>
+            </div>
+            <div class="small-10 medium-11 columns">
+                <h5 class="category-row-content-panel dark-row-panel">
+                    <span ng-if="!hasLabAppointmentDate">
+                        Weeks 5 - 7<br/>
+                        <a href="schedule_lab_appointment.html">Schedule Lab Appointment #1</a><br/>
+                    </span>
+                    <span ng-if="hasLabAppointmentDate">
+                        Lab Appointment #1<br/>
+                        <span class="appointment-timestamp">
+                            <a href="schedule_lab_appointment.html">
+                                Scheduled for {{ labAppointmentDate | date:'h:mm a' }}
+                                on {{ labAppointmentDate | date:'EEE, MMM dd yyyy' }}
+                            </a>
+                        </span>
+                    </span>
+                </h5>
+            </div>
+        </div>
+
+        <div ng-show="appointmentsCategorySelected && hadFirstAppointment" class="row appointment-row">
+            <div class="small-2 medium-1 columns category-row-icon-panel">
+                <i class="fi-clock"></i>
+            </div>
+            <div class="small-10 medium-11 columns">
+                <h5 class="category-row-content-panel">
+                    <span ng-if="!hasBabyAppointment2Date">
+                        Weeks 8<br/>
                         <a href="find_obgyn.html">Schedule Baby Appointment #2</a><br/>
-                    </h5>
-                </div>
+                    </span>
+                    <span ng-if="hasBabyAppointment2Date">
+                        Baby Appointment #2<br/>
+                        <span class="appointment-timestamp">
+                            <a href="find_obgyn.html">
+                                Scheduled for {{ babyAppointment2Date | date:'h:mm a' }}
+                                on {{ babyAppointment2Date | date:'EEE, MMM dd yyyy' }}
+                                with {{ doctorFirstName | firstLetterCapitalize }}
+                                {{ doctorLastName | firstLetterCapitalize }}<span ng-if="doctorCredentials"> {{ doctorCredentials | uppercase }}</span></a>
+                        </span>
+                    </span>
+                </h5>
             </div>
+        </div>
 
-            <h4>
-                Weeks 9 - 12: A Fetus
-            </h4>
+        <h4>
+            Weeks 9 - 12: A Fetus
+        </h4>
 
-            <div ng-show="nutritionCategorySelected" class="row nutrition-row">
-                <div class="small-2 medium-1 columns category-row-icon-panel">
-                    <i class="fi-trees"></i>
-                </div>
-                <div class="small-10 medium-11 columns">
-                    <h5 class="category-row-content-panel">
-                        Weeks 9 - 12<br/>
-                        1887 calories / day
-                    </h5>
-                </div>
+        <div ng-show="nutritionCategorySelected" class="row nutrition-row">
+            <div class="small-2 medium-1 columns category-row-icon-panel">
+                <i class="fi-trees"></i>
             </div>
-
-            <h3 class="plan-panel-title">
-                Second Trimester
-            </h3>
-
-            <h4>
-                Weeks 13 - 27: "Golden" Period
-            </h4>
-
-            <div ng-show="nutritionCategorySelected" class="row nutrition-row">
-                <div class="small-2 medium-1 columns category-row-icon-panel">
-                    <i class="fi-trees"></i>
-                </div>
-                <div class="small-10 medium-11 columns">
-                    <h5 class="category-row-content-panel">
-                        Weeks 13 - 27<br/>
-                        2087 calories / day
-                    </h5>
-                </div>
+            <div class="small-10 medium-11 columns">
+                <h5 class="category-row-content-panel">
+                    Weeks 9 - 12<br/>
+                    1887 calories / day
+                </h5>
             </div>
+        </div>
 
-            <h3 class="plan-panel-title">
-                Third Trimester
-            </h3>
+        <h3 class="plan-panel-title">
+            Second Trimester
+        </h3>
 
-            <h4>
-                Weeks 28 - 40 (Birth): The Finale
-            </h4>
+        <h4>
+            Weeks 13 - 27: "Golden" Period
+        </h4>
 
-            <div ng-show="nutritionCategorySelected" class="row nutrition-row">
-                <div class="small-2 medium-1 columns category-row-icon-panel">
-                    <i class="fi-trees"></i>
-                </div>
-                <div class="small-10 medium-11 columns">
-                    <h5 class="category-row-content-panel">
-                        Weeks 28 - 40<br/>
-                        2277 calories / day
-                    </h5>
-                </div>
+        <div ng-show="nutritionCategorySelected" class="row nutrition-row">
+            <div class="small-2 medium-1 columns category-row-icon-panel">
+                <i class="fi-trees"></i>
+            </div>
+            <div class="small-10 medium-11 columns">
+                <h5 class="category-row-content-panel">
+                    Weeks 13 - 27<br/>
+                    2087 calories / day
+                </h5>
+            </div>
+        </div>
+
+        <h3 class="plan-panel-title">
+            Third Trimester
+        </h3>
+
+        <h4>
+            Weeks 28 - 40 (Birth): The Finale
+        </h4>
+
+        <div ng-show="nutritionCategorySelected" class="row nutrition-row">
+            <div class="small-2 medium-1 columns category-row-icon-panel">
+                <i class="fi-trees"></i>
+            </div>
+            <div class="small-10 medium-11 columns">
+                <h5 class="category-row-content-panel">
+                    Weeks 28 - 40<br/>
+                    2277 calories / day
+                </h5>
             </div>
         </div>
     </div>
+</div>
 </section>
 
 <footer class="footer-panel">

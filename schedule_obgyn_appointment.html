@@ -4,24 +4,26 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>YutYut Health - Schedule Lab Appointment #1</title>
+    <title>YutYut Health - Schedule Baby Appointment #2</title>
 
     <link rel="stylesheet" href="css/foundation/foundation.css"/>
     <link rel="stylesheet" href="css/foundation/calendar/foundation-calendar.css"/>
     <link rel="stylesheet" href="css/foundation/icons/foundation-icons.css"/>
     <link rel="stylesheet" href="app/common/main.css"/>
     <link rel="stylesheet" href="app/common/schedule_appointment/schedule_appointment.css"/>
+    <link rel="stylesheet" href="app/pages/schedule_obgyn_appointment/schedule_obgyn_appointment.css"/>
 
     <link rel="shortcut icon" href="img/favicon/yy_16x16.ico"/>
 
     <script src="js/angular.min.js" type="text/javascript"></script>
     <script src="app/common/localStorage.js" type="text/javascript"></script>
-    <script src="app/pages/schedule_lab_appointment/schedule_lab_appointment.js" type="text/javascript"></script>
+    <script src="app/common/filter/firstLetterCapitalize.js" type="text/javascript"></script>
+    <script src="app/pages/schedule_obgyn_appointment/schedule_obgyn_appointment.js" type="text/javascript"></script>
 
     <script src="js/modernizr.js"></script>
 </head>
 
-<body ng-controller="ScheduleLabAppointmentController">
+<body ng-controller="ScheduleObGynAppointmentController">
 
 <div class="row">
 <div class="small-12 columns">
@@ -48,8 +50,19 @@
 <!-- main content -->
 <section>
     <h1>
-        Schedule Lab Appointment #1
+        Schedule Baby Appointment #2
     </h1>
+
+    <hr/>
+
+    <h4>
+        Health Provider:
+    </h4>
+
+    <h5 class="content-item health-professional-title">
+        {{ doctorFirstName | firstLetterCapitalize }} {{ doctorLastName | firstLetterCapitalize }}<span
+            ng-if="doctorCredentials"> {{ doctorCredentials | uppercase }}</span>
+    </h5>
 
     <hr/>
 
@@ -58,7 +71,7 @@
     </h4>
 
     <h5 class="content-item">
-        A lab near you
+        A location near you
     </h5>
 
     <hr/>
@@ -216,10 +229,12 @@
     <!-- confirm appointment modal-->
     <div id="confirm_appointment_modal" data-reveal class="reveal-modal">
         <h3 class="confirm-appointment-title">
-            Lab Appointment #1
+            Baby Appointment #2
         </h3>
         <h6>
-            A lab near you<br/>
+            {{ doctorFirstName | firstLetterCapitalize }} {{ doctorLastName | firstLetterCapitalize }}<span
+                ng-if="doctorCredentials"> {{ doctorCredentials | uppercase }}</span><br/>
+            A location near you<br/>
             {{ selectedDate | date:'fullDate' }}<br/>
             {{ selectedDate | date:'h:mm a' }}<br/><br/>
 
