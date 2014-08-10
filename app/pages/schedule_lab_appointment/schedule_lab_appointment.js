@@ -6,10 +6,7 @@ angular
                 [ '$scope', 'localStorageService', 'browserSupportService', 'radioClassService',
                     function ($scope, localStorageService, browserSupportService, radioClassService) {
 
-                        var selectedYear = 2014;
-                        var selectedMonth = 9;
-                        var selectedDate = 1;
-                        var selectedHours = 8;
+                        $scope.selectedDate = new Date("September 1, 2014 8:00");
 
                         var currentHighlightedDate;
                         var currentHighlightedTime;
@@ -18,16 +15,16 @@ angular
                         var highlightedTimeClass = 'now';
 
                         $scope.selectDate = function (day, month, year) {
-                            selectedYear = year;
-                            selectedMonth = month;
-                            selectedDate = day;
-                            updateSelectedDate();
-                            updateCalendarHighlighting();
+                            updateSelectedDate(year, month, day);
+                            updateDateHighlighting();
                         };
 
                         $scope.selectHour = function (hours) {
-                            selectedHours = hours;
-                            updateSelectedDate();
+                            var selectedDate = $scope.selectedDate;
+                            var selectedYear = selectedDate.getFullYear();
+                            var selectedMonth = selectedDate.getMonth() + 1;
+                            var selectedDateDate = selectedDate.getDate();
+                            updateSelectedDate(selectedYear, selectedMonth, selectedDateDate, hours);
                             updateTimeHighlighting();
                         };
 
@@ -35,45 +32,50 @@ angular
                             localStorageService.set('labAppointmentDate', $scope.selectedDate);
                         };
 
-                        function updateSelectedDate() {
-                            currentHighlightedDate = $scope.selectedDate;
-                            $scope.selectedDate = new Date(selectedYear, selectedMonth - 1, selectedDate, selectedHours);
+                        function updateSelectedDate(year, month, date, hours) {
+                            if (!hours) {
+                                hours = $scope.selectedDate.getHours();
+                            }
+                            $scope.selectedDate = new Date(year, month - 1, date, hours);
                         }
 
-                        function updateCalendarHighlighting() {
+                        function updateDateHighlighting() {
+                            var newHighlightedDate = $scope.selectedDate;
+                            updateCalendarHighlighting(getDateId, currentHighlightedDate, newHighlightedDate, highlightedDateClass);
+                            currentHighlightedDate = newHighlightedDate;
+                        }
+
+                        function updateCalendarHighlighting(getHtmlIdFromDate, currentHighlightedDate, newHighlightedDate, highlightedClassName) {
                             var initHighlightedDate = currentHighlightedDate;
                             if (!initHighlightedDate) {
-                                currentHighlightedDate = $scope.selectedDate;
+                                currentHighlightedDate = newHighlightedDate;
                             }
-                            var currentHighlightedMonthId = currentHighlightedDate.getMonth() + 1;
-                            var currentHighlightedDateId = currentHighlightedDate.getDate() + '-' + currentHighlightedMonthId + '-' + currentHighlightedDate.getFullYear();
+                            var currentHighlightedHtmlId = getHtmlIdFromDate(currentHighlightedDate);
 
                             if (!initHighlightedDate) {
-                                radioClassService.selectElementClass(currentHighlightedDateId, highlightedDateClass);
+                                radioClassService.selectElementClass(currentHighlightedHtmlId, highlightedClassName);
                             } else {
-                                var newHighlightedDateId = selectedDate + '-' + selectedMonth + '-' + selectedYear;
-                                radioClassService.switchElementClass(currentHighlightedDateId, newHighlightedDateId, highlightedDateClass);
-                                currentHighlightedDate = $scope.selectedDate;
+                                var newHighlightedHtmlId = getHtmlIdFromDate(newHighlightedDate);
+                                radioClassService.switchElementClass(currentHighlightedHtmlId, newHighlightedHtmlId, highlightedClassName);
                             }
+                        }
+
+                        function getDateId(date) {
+                            var monthId = date.getMonth() + 1;
+                            return date.getDate() + '-' + monthId + '-' + date.getFullYear();
                         }
 
                         function updateTimeHighlighting() {
-                            var initHighlightedTime = currentHighlightedTime;
-                            if (!initHighlightedTime) {
-                                currentHighlightedTime = $scope.selectedDate;
-                            }
-                            var currentHighlightedTimeId = currentHighlightedTime.getHours();
-
-                            if (!initHighlightedTime) {
-                                radioClassService.selectElementClass(currentHighlightedTimeId, highlightedTimeClass);
-                            } else {
-                                radioClassService.switchElementClass(currentHighlightedTimeId, selectedHours, highlightedTimeClass);
-                                currentHighlightedTime = $scope.selectedDate;
-                            }
+                            var newHighlightedTime = $scope.selectedDate;
+                            updateCalendarHighlighting(getHoursId, currentHighlightedTime, newHighlightedTime, highlightedTimeClass);
+                            currentHighlightedTime = newHighlightedTime;
                         }
 
-                        updateSelectedDate();
-                        updateCalendarHighlighting();
+                        function getHoursId(date) {
+                            return date.getHours();
+                        }
+
+                        updateDateHighlighting();
                         updateTimeHighlighting();
 
                     } ]);
