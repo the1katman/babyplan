@@ -1,0 +1,28 @@
+.today {
+    color: #fff; /* white */
+}
+
+a.time-slot:link,
+a.time-slot:visited,
+.time-slot {
+    background: #fff; /* white */
+    color: #000; /* black */
+}
+
+a.time-slot:active,
+a.time-slot:hover {
+    background: #efefef; /* lighter grey */
+    color: #000; /* black */
+}
+
+a.now:link,
+a.now:visited,
+.now {
+    background: #76df9d;
+    color: #fff; /* white */
+}
+a.now:active,
+a.now:hover {
+    background: #65ce8c;
+    color: #fff; /* white */
+}
