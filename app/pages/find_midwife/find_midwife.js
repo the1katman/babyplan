@@ -1,9 +1,10 @@
 "use strict";
 
 angular
-        .module('BabyPlanApp', ['localStorage'])
+        .module('BabyPlanApp', ['localStorage', 'browserSupport'])
         .controller('FindMidwifeController',
-                [ '$scope', 'localStorageService', function ($scope, localStorageService) {
+                [ '$scope', 'localStorageService', 'browserSupportService',
+                    function ($scope, localStorageService, browserSupportService) {
 
                     $scope.selectMidwife= function (midwifeFirstName, midwifeLastName, credentials) {
                         localStorageService.set('midwifeFirstName', midwifeFirstName);

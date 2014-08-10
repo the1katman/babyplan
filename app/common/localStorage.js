@@ -24,11 +24,10 @@ angular
                         return localStorageSupport;
                     }
 
-                    if (!isLocalStorageSupported) {
-                        throw new Error('Local storage is not supported.');
-                    }
-
                     return {
+                        isSupported: function() {
+                            return isLocalStorageSupported;
+                        },
                         get: function (key) {
                             var value = localStorage.getItem(key);
                             if (value) {

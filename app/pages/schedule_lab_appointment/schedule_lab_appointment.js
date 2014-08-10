@@ -1,9 +1,10 @@
 "use strict";
 
 angular
-        .module('BabyPlanApp', ['localStorage'])
+        .module('BabyPlanApp', ['localStorage', 'browserSupport'])
         .controller('ScheduleLabAppointmentController',
-                [ '$scope', 'localStorageService', function ($scope, localStorageService) {
+                [ '$scope', 'localStorageService', 'browserSupportService',
+                    function ($scope, localStorageService, browserSupportService) {
 
                     var selectedYear = 2014;
                     var selectedMonth = 9;

@@ -1,9 +1,10 @@
 "use strict";
 
 angular
-        .module('BabyPlanApp', ['localStorage', 'firstLetterCapitalize'])
+        .module('BabyPlanApp', ['localStorage', 'browserSupport', 'firstLetterCapitalize'])
         .controller('ScheduleObGynAppointmentController',
-                [ '$scope', 'localStorageService', function ($scope, localStorageService) {
+                [ '$scope', 'localStorageService', 'browserSupportService',
+                    function ($scope, localStorageService, browserSupportService) {
 
                     $scope.doctorFirstName = localStorageService.get('doctorFirstName');
                     $scope.doctorLastName = localStorageService.get('doctorLastName');
