@@ -5,6 +5,22 @@ angular
         .factory('radioClassService',
                 [ '$window', function ($window) {
 
+                    function updateClassHighlighting(getHtmlIdFromModel, currentHighlightModel, newHighlightModel, highlightClassName) {
+                        var initHighlightModel = currentHighlightModel;
+                        if (!initHighlightModel) {
+                            currentHighlightModel = newHighlightModel;
+                        }
+                        var currentHighlightedHtmlId = getHtmlIdFromModel(currentHighlightModel);
+
+                        if (!initHighlightModel) {
+                            // select the element class
+                            toggleElementClass(currentHighlightedHtmlId, highlightClassName);
+                        } else {
+                            var newHighlightedHtmlId = getHtmlIdFromModel(newHighlightModel);
+                            switchElementClass(currentHighlightedHtmlId, newHighlightedHtmlId, highlightClassName);
+                        }
+                    }
+
                     function toggleElementClass(htmlId, className) {
                         if (className) {
                             //noinspection JSUnresolvedVariable
@@ -12,15 +28,16 @@ angular
                         }
                     }
 
+                    function switchElementClass(srcHtmlId, destHtmlId, className) {
+                        if (className && srcHtmlId !== destHtmlId) {
+                            toggleElementClass(srcHtmlId, className);
+                            toggleElementClass(destHtmlId, className);
+                        }
+                    }
+
                     return {
-                        selectElementClass: function (htmlId, className) {
-                            toggleElementClass(htmlId, className);
-                        },
-                        switchElementClass: function (srcHtmlId, destHtmlId, className) {
-                            if (className && srcHtmlId !== destHtmlId) {
-                                toggleElementClass(srcHtmlId, className);
-                                toggleElementClass(destHtmlId, className);
-                            }
+                        updateHighlight: function (getHtmlIdFromModel, currentHighlightModel, newHighlightModel, highlightClassName) {
+                            updateClassHighlighting(getHtmlIdFromModel, currentHighlightModel, newHighlightModel, highlightClassName);
                         }
                     };
 

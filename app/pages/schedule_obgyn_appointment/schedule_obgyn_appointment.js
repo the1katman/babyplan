@@ -1,40 +1,70 @@
 "use strict";
 
 angular
-        .module('BabyPlanApp', ['localStorage', 'browserSupport', 'firstLetterCapitalize'])
+        .module('BabyPlanApp', ['localStorage', 'browserSupport', 'firstLetterCapitalize', 'radioClass'])
         .controller('ScheduleObGynAppointmentController',
-                [ '$scope', 'localStorageService', 'browserSupportService',
-                    function ($scope, localStorageService, browserSupportService) {
+                [ '$scope', 'localStorageService', 'browserSupportService', 'radioClassService',
+                    function ($scope, localStorageService, browserSupportService, radioClassService) {
 
-                    $scope.doctorFirstName = localStorageService.get('doctorFirstName');
-                    $scope.doctorLastName = localStorageService.get('doctorLastName');
-                    $scope.doctorCredentials = localStorageService.get('doctorCredentials');
+                        $scope.doctorFirstName = localStorageService.get('doctorFirstName');
+                        $scope.doctorLastName = localStorageService.get('doctorLastName');
+                        $scope.doctorCredentials = localStorageService.get('doctorCredentials');
 
-                    var selectedYear = 2014;
-                    var selectedMonth = 9;
-                    var selectedDay = 1;
-                    var selectedHours = 8;
+                        $scope.selectedDate = new Date("September 1, 2014 8:00");
 
-                    $scope.selectDate = function (day, month, year) {
-                        selectedYear = year;
-                        selectedMonth = month;
-                        selectedDay = day;
-                        updateSelectedDate();
-                    };
+                        var currentHighlightedDate;
+                        var currentHighlightedTime;
 
-                    $scope.selectHour = function (hours) {
-                        selectedHours = hours;
-                        updateSelectedDate();
-                    };
+                        var highlightedDateClass = 'today';
+                        var highlightedTimeClass = 'now';
 
-                    $scope.confirmAppointment = function () {
-                        localStorageService.set('babyAppointment2Date', $scope.selectedDate);
-                    };
+                        $scope.selectDate = function (day, month, year) {
+                            updateSelectedDate(year, month, day);
+                            updateDateHighlighting();
+                        };
 
-                    function updateSelectedDate() {
-                        $scope.selectedDate = new Date(selectedYear, selectedMonth - 1, selectedDay, selectedHours);
-                    }
+                        $scope.selectHour = function (hours) {
+                            var selectedDate = $scope.selectedDate;
+                            var selectedYear = selectedDate.getFullYear();
+                            var selectedMonth = selectedDate.getMonth() + 1;
+                            var selectedDateDate = selectedDate.getDate();
+                            updateSelectedDate(selectedYear, selectedMonth, selectedDateDate, hours);
+                            updateTimeHighlighting();
+                        };
 
-                    updateSelectedDate();
+                        $scope.confirmAppointment = function () {
+                            localStorageService.set('babyAppointment2Date', $scope.selectedDate);
+                        };
 
-                } ]);
+                        function updateSelectedDate(year, month, date, hours) {
+                            if (!hours) {
+                                hours = $scope.selectedDate.getHours();
+                            }
+                            $scope.selectedDate = new Date(year, month - 1, date, hours);
+                        }
+
+                        function updateDateHighlighting() {
+                            var newHighlightedDate = $scope.selectedDate;
+                            radioClassService.updateHighlight(getDateId, currentHighlightedDate, newHighlightedDate, highlightedDateClass);
+                            currentHighlightedDate = newHighlightedDate;
+                        }
+
+                        function getDateId(date) {
+                            var monthId = date.getMonth() + 1;
+                            return date.getDate() + '-' + monthId + '-' + date.getFullYear();
+                        }
+
+                        function updateTimeHighlighting() {
+                            var newHighlightedTime = $scope.selectedDate;
+                            radioClassService.updateHighlight(getHoursId, currentHighlightedTime, newHighlightedTime, highlightedTimeClass);
+                            currentHighlightedTime = newHighlightedTime;
+                        }
+
+                        function getHoursId(date) {
+                            return date.getHours();
+                        }
+
+                        updateDateHighlighting();
+                        updateTimeHighlighting();
+
+                    } ]);

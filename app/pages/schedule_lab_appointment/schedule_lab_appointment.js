@@ -41,23 +41,8 @@ angular
 
                         function updateDateHighlighting() {
                             var newHighlightedDate = $scope.selectedDate;
-                            updateCalendarHighlighting(getDateId, currentHighlightedDate, newHighlightedDate, highlightedDateClass);
+                            radioClassService.updateHighlight(getDateId, currentHighlightedDate, newHighlightedDate, highlightedDateClass);
                             currentHighlightedDate = newHighlightedDate;
-                        }
-
-                        function updateCalendarHighlighting(getHtmlIdFromDate, currentHighlightedDate, newHighlightedDate, highlightedClassName) {
-                            var initHighlightedDate = currentHighlightedDate;
-                            if (!initHighlightedDate) {
-                                currentHighlightedDate = newHighlightedDate;
-                            }
-                            var currentHighlightedHtmlId = getHtmlIdFromDate(currentHighlightedDate);
-
-                            if (!initHighlightedDate) {
-                                radioClassService.selectElementClass(currentHighlightedHtmlId, highlightedClassName);
-                            } else {
-                                var newHighlightedHtmlId = getHtmlIdFromDate(newHighlightedDate);
-                                radioClassService.switchElementClass(currentHighlightedHtmlId, newHighlightedHtmlId, highlightedClassName);
-                            }
                         }
 
                         function getDateId(date) {
@@ -67,7 +52,7 @@ angular
 
                         function updateTimeHighlighting() {
                             var newHighlightedTime = $scope.selectedDate;
-                            updateCalendarHighlighting(getHoursId, currentHighlightedTime, newHighlightedTime, highlightedTimeClass);
+                            radioClassService.updateHighlight(getHoursId, currentHighlightedTime, newHighlightedTime, highlightedTimeClass);
                             currentHighlightedTime = newHighlightedTime;
                         }
 
