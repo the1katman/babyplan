@@ -64,17 +64,17 @@ angular
                         $scope.weeks = initWeeks(startWeek, endWeek);
                         $scope.ordinalTrimester = initOrdinalTrimester(startWeek);
 
-                        $scope.age = 27;
-                        $scope.ageModel = $scope.age;
+                        var age = 27;
+                        $scope.ageModel = age;
 
-                        $scope.heightFeet = 5;
-                        $scope.heightFeetModel = $scope.heightFeet;
+                        var heightFeet = 5;
+                        $scope.heightFeetModel = heightFeet;
 
-                        $scope.heightInches = 4;
-                        $scope.heightInchesModel = $scope.heightInches;
+                        var heightInches = 4;
+                        $scope.heightInchesModel = heightInches;
 
-                        $scope.weightInPounds = 129;
-                        $scope.weightInPoundsModel = $scope.weightInPounds;
+                        var weightInPounds = 129;
+                        $scope.weightInPoundsModel = weightInPounds;
 
                         // TODO DUPLICATION: figure out how to factor out the the xChanged() methods if possible
                         // to remove duplication
@@ -85,11 +85,17 @@ angular
                                     && !isNaN(ageModel)
                                     && ageModel > 0
                                     && ageModel < 100;
+                            var isSameAge = true;
                             if (!isValidAge) {
-                                ageModel = $scope.age;
+                                ageModel = age;
+                            } else {
+                                isSameAge = ageModel === age;
                             }
-                            $scope.age = ageModel;
+                            age = ageModel;
                             $scope.ageModel = ageModel;
+                            if (isValidAge && !isSameAge) {
+                                calculateCaloriesPerDay();
+                            }
                         };
 
                         $scope.heightFeetChanged = function () {
@@ -98,11 +104,17 @@ angular
                                     && !isNaN(heightFeetModel)
                                     && heightFeetModel > 0
                                     && heightFeetModel < 8;
+                            var isSameHeightFeet = true;
                             if (!isValidFeet) {
-                                heightFeetModel = $scope.heightFeet;
+                                heightFeetModel = heightFeet;
+                            } else {
+                                isSameHeightFeet = heightFeetModel === heightFeet;
                             }
-                            $scope.heightFeet = heightFeetModel;
+                            heightFeet = heightFeetModel;
                             $scope.heightFeetModel = heightFeetModel;
+                            if (isValidFeet && !isSameHeightFeet) {
+                                calculateCaloriesPerDay();
+                            }
                         };
 
                         $scope.heightInchesChanged = function () {
@@ -111,11 +123,17 @@ angular
                                     && !isNaN(heightInchesModel)
                                     && heightInchesModel >= 0
                                     && heightInchesModel <= 12;
+                            var isSameHeightInches = true;
                             if (!isValidInches) {
-                                heightInchesModel = $scope.heightInches;
+                                heightInchesModel = heightInches;
+                            } else {
+                                isSameHeightInches = heightInchesModel === heightInches;
                             }
-                            $scope.heightInches = heightInchesModel;
+                            heightInches = heightInchesModel;
                             $scope.heightInchesModel = heightInchesModel;
+                            if (isValidInches && !isSameHeightInches) {
+                                calculateCaloriesPerDay();
+                            }
                         };
 
                         $scope.weightInPoundsChanged = function () {
@@ -124,11 +142,17 @@ angular
                                     && !isNaN(weightInPoundsModel)
                                     && weightInPoundsModel > 0
                                     && weightInPoundsModel < 1000;
+                            var isSameWeightInPounds = true;
                             if (!isValidWeightInPounds) {
-                                weightInPoundsModel = $scope.weightInPounds;
+                                weightInPoundsModel = weightInPounds;
+                            } else {
+                                isSameWeightInPounds = weightInPoundsModel === weightInPounds;
                             }
-                            $scope.weightInPounds = weightInPoundsModel;
+                            weightInPounds = weightInPoundsModel;
                             $scope.weightInPoundsModel = weightInPoundsModel;
+                            if (isValidWeightInPounds && !isSameWeightInPounds) {
+                                calculateCaloriesPerDay();
+                            }
                         };
 
                         function initWeekAsNumber(initWeek, defaultWeek) {
@@ -167,5 +191,20 @@ angular
                             }
                             return ordinalTrimester;
                         }
+
+                        function calculateCaloriesPerDay() {
+                            var massInKg = Number(weightInPounds) / 2.2046;
+                            var heightInCm = calcHeightInCm(heightFeet, heightInches);
+
+                            // using Mifflin St Jeor equation
+                            $scope.caloriesPerDay = (10 * massInKg) + (6.25 * heightInCm) - (5 * Number(age)) - 161;
+                        }
+
+                        function calcHeightInCm(heightFeet, heightInches) {
+                            var totalInches = (Number(heightFeet) * 12) + Number(heightInches);
+                            return totalInches * 2.54;
+                        }
+
+                        calculateCaloriesPerDay();
 
                     } ]);
