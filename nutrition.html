@@ -1,4 +1,5 @@
 <!doctype html>
+<!--suppress HtmlUnknownTag -->
 <html class="no-js" lang="en" ng-app="BabyPlanApp">
 <head>
     <meta charset="utf-8"/>
@@ -59,11 +60,39 @@
 
             <hr/>
 
-            <h4 class="caloric-factors-panel">
-                Age: 27<br/>
-                Height: 5'5"<br/>
-                Weight: 135 lbs<br/>
-            </h4>
+            <div class="caloric-factors-panel">
+                <label>
+                    <h4>
+                        Age <input class="two-digit-input" maxlength="2"
+                                   ng-model="ageModel"
+                                   ng-change="ageChanged()"
+                                   ng-delay="2000"/>
+                    </h4>
+                </label>
+
+                <label>
+                    <h4>
+                        Height
+                        <input class="one-digit-input" maxlength="1"
+                               ng-model="heightFeetModel"
+                               ng-change="heightFeetChanged()"
+                               ng-delay="2000"/> ft
+                        <input class="two-digit-input" maxlength="2"
+                               ng-model="heightInchesModel"
+                               ng-change="heightInchesChanged()"
+                               ng-delay="2000"/> in
+                    </h4>
+                </label>
+
+                <label>
+                    <h4>
+                        Weight <input class="three-digit-input" maxlength="3"
+                                      ng-model="weightInPoundsModel"
+                                      ng-change="weightInPoundsChanged()"
+                                      ng-delay="2000"/> lbs
+                    </h4>
+                </label>
+            </div>
 
             <hr/>
 

@@ -2,6 +2,25 @@
     margin-left: 2rem;
 }
 
+.one-digit-input,
+.two-digit-input,
+.three-digit-input{
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.one-digit-input {
+    width: 2.25rem;
+}
+
+.two-digit-input {
+    width: 2.75rem;
+}
+
+.three-digit-input {
+    width: 3.25rem;
+}
+
 .caloric-result-panel {
     margin-bottom: 1rem;
     text-align: center;
