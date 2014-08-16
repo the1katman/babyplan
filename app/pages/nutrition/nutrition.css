@@ -1,5 +1,53 @@
-.caloric-factors-panel {
-    margin-left: 2rem;
+.section-top-separator {
+    margin-bottom: 0;
+}
+
+.calorie-section-panel {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0.75rem 1rem;
+}
+
+.section-middle-separator {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.calorie-calculator-panel {
+    background: #3f8ac9;
+}
+
+.calorie-calculator-title {
+    margin-top: 0;
+    text-align: center;
+    color: #fff; /* white */
+}
+
+.caloric-factor-label {
+    text-align: right;
+}
+
+.trimester-factor-label {
+    text-align: center;
+}
+
+.caloric-factor-input {
+    text-align: left;
+}
+
+.trimester-factor-input {
+    text-align: center;
+}
+
+/* medium screens */
+@media only screen and (min-width: 40.063em) {
+    .trimester-factor-label {
+        text-align: right;
+    }
+
+    .trimester-factor-input {
+        text-align: left;
+    }
 }
 
 .one-digit-input,
@@ -22,8 +70,14 @@
 }
 
 .caloric-result-panel {
-    margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
     text-align: center;
+    background: #32cd32; /* limegreen */
+}
+
+.section-bottom-separator {
+    margin-top: 0;
 }
 
 .baby-plan-button-panel {

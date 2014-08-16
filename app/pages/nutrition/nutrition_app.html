@@ -1,45 +1,83 @@
-<h3>
-    {{ ordinalTrimesterLabel }} Trimester: {{ weeks }}
-</h3>
+<div class="calorie-section-panel calorie-calculator-panel">
+    <h3 class="calorie-calculator-title">
+        Calorie Calculator
+    </h3>
 
-<hr/>
-
-<div class="caloric-factors-panel">
-    <label>
-        <h4>
-            Age <input class="two-digit-input" maxlength="2"
-                       ng-model="age"
-                       ng-change="ageChanged()"
-                       ng-delay="2000"/>
-        </h4>
-    </label>
-
-    <label>
-        <h4>
-            Height
-            <input class="one-digit-input" maxlength="1"
-                   ng-model="heightFeet"
-                   ng-change="heightFeetChanged()"
-                   ng-delay="2000"/> ft
-            <input class="two-digit-input" maxlength="2"
-                   ng-model="heightInches"
-                   ng-change="heightInchesChanged()"
-                   ng-delay="2000"/> in
-        </h4>
-    </label>
-
-    <label>
-        <h4>
-            Weight <input class="three-digit-input" maxlength="3"
-                          ng-model="weightInPounds"
-                          ng-change="weightInPoundsChanged()"
-                          ng-delay="2000"/> lbs
-        </h4>
-    </label>
+    <div class="row">
+        <div class="small-12 medium-8 large-7 small-centered columns">
+            <div class="panel callout radius">
+                <div class="row">
+                    <div class="small-4 medium-6 columns caloric-factor-label">
+                        <h4>
+                            Age
+                        </h4>
+                    </div>
+                    <div class="small-8 medium-6 columns">
+                        <label>
+                            <input class="two-digit-input" maxlength="2"
+                                   ng-model="age"
+                                   ng-change="ageChanged()"
+                                   ng-delay="2000"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-4 medium-6 columns caloric-factor-label">
+                        <h4>
+                            Height
+                        </h4>
+                    </div>
+                    <div class="small-8 medium-6 columns">
+                        <label>
+                            <h4>
+                                <input class="one-digit-input" maxlength="1"
+                                       ng-model="heightFeet"
+                                       ng-change="heightFeetChanged()"
+                                       ng-delay="2000"/> ft
+                                <input class="two-digit-input" maxlength="2"
+                                       ng-model="heightInches"
+                                       ng-change="heightInchesChanged()"
+                                       ng-delay="2000"/> in
+                            </h4>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-4 medium-6 columns caloric-factor-label">
+                        <h4>
+                            Weight
+                        </h4>
+                    </div>
+                    <div class="small-8 medium-6 columns">
+                        <label>
+                            <h4>
+                                <input class="three-digit-input" maxlength="3"
+                                       ng-model="weightInPounds"
+                                       ng-change="weightInPoundsChanged()"
+                                       ng-delay="2000"/> lbs
+                            </h4>
+                        </label>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1rem">
+                    <div class="small-12 medium-6 columns caloric-factor-label trimester-factor-label">
+                        <h4>
+                            {{ ordinalTrimesterLabel }} Trimester
+                        </h4>
+                    </div>
+                    <div class="small-12 medium-6 columns caloric-factor-input trimester-factor-input">
+                        <h4>
+                            {{ weeks }}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<hr/>
+<hr class="section-middle-separator"/>
 
-<h3 class="caloric-result-panel">
-    Total = {{ caloriesPerDay | number:0 }} calories / day
+<h3 class="calorie-section-panel caloric-result-panel">
+    Total: {{ caloriesPerDay | number:0 }} calories / day
 </h3>
