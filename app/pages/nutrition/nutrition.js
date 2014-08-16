@@ -2,7 +2,7 @@
 
 //noinspection JSUnusedLocalSymbols
 angular
-        .module('BabyPlanApp', ['ngRoute', 'localStorage', 'browserSupport'])
+        .module('BabyPlanApp', ['ngRoute', 'localStorage', 'browserSupport', 'patient', 'nutrition'])
         .directive('ngDelay', ['$timeout', function ($timeout) {
             return {
                 restrict: 'A',
@@ -53,8 +53,8 @@ angular
                     })
         })
         .controller('NutritionController',
-                [ '$scope', '$routeParams', '$timeout', 'localStorageService', 'browserSupportService',
-                    function ($scope, $routeParams, $timeout, localStorageService, browserSupportService) {
+                [ '$scope', '$routeParams', '$timeout', 'localStorageService', 'browserSupportService', 'patientService', 'nutritionService',
+                    function ($scope, $routeParams, $timeout, localStorageService, browserSupportService, patientService, nutritionService) {
 
                         //noinspection JSUnresolvedVariable
                         var startWeek = initWeekAsNumber($routeParams.startWeek, 1);
@@ -62,96 +62,68 @@ angular
                         var endWeek = initWeekAsNumber($routeParams.endWeek, null);
 
                         $scope.weeks = initWeeks(startWeek, endWeek);
-                        $scope.ordinalTrimester = initOrdinalTrimester(startWeek);
+                        var ordinalTrimester = initOrdinalTrimester(startWeek);
+                        $scope.ordinalTrimesterLabel = initOrdinalTrimesterLabel(ordinalTrimester);
 
-                        var age = 27;
-                        $scope.ageModel = age;
+                        $scope.age = patientService.getAge();
 
-                        var heightFeet = 5;
-                        $scope.heightFeetModel = heightFeet;
+                        $scope.heightFeet = getCurrentHeightFeet();
+                        $scope.heightInches = getCurrentHeightInches();
 
-                        var heightInches = 4;
-                        $scope.heightInchesModel = heightInches;
-
-                        var weightInPounds = 129;
-                        $scope.weightInPoundsModel = weightInPounds;
+                        $scope.weightInPounds = patientService.getWeightInPounds();
 
                         // TODO DUPLICATION: figure out how to factor out the the xChanged() methods if possible
                         // to remove duplication
 
                         $scope.ageChanged = function () {
-                            var ageModel = $scope.ageModel;
-                            var isValidAge = ageModel
-                                    && !isNaN(ageModel)
-                                    && ageModel > 0
-                                    && ageModel < 100;
-                            var isSameAge = true;
-                            if (!isValidAge) {
-                                ageModel = age;
-                            } else {
-                                isSameAge = ageModel === age;
-                            }
-                            age = ageModel;
-                            $scope.ageModel = ageModel;
-                            if (isValidAge && !isSameAge) {
-                                calculateCaloriesPerDay();
+                            var newAge = $scope.age;
+                            var isNewAgeValid = patientService.isValidAge(newAge);
+                            var currentAge = patientService.getAge();
+                            if (!isNewAgeValid) {
+                                $scope.age = currentAge;
+                            } else if (newAge !== currentAge) {
+                                patientService.setAge(newAge);
+                                $scope.age = newAge;
+                                updateCaloriesPerDay();
                             }
                         };
 
                         $scope.heightFeetChanged = function () {
-                            var heightFeetModel = $scope.heightFeetModel;
-                            var isValidFeet = heightFeetModel
-                                    && !isNaN(heightFeetModel)
-                                    && heightFeetModel > 0
-                                    && heightFeetModel < 8;
-                            var isSameHeightFeet = true;
-                            if (!isValidFeet) {
-                                heightFeetModel = heightFeet;
-                            } else {
-                                isSameHeightFeet = heightFeetModel === heightFeet;
-                            }
-                            heightFeet = heightFeetModel;
-                            $scope.heightFeetModel = heightFeetModel;
-                            if (isValidFeet && !isSameHeightFeet) {
-                                calculateCaloriesPerDay();
+                            var newHeightFeet = Number($scope.heightFeet);
+                            var isNewHeightFeetValid = patientService.isValidHeightForFeet(newHeightFeet);
+                            var currentHeightFeet = getCurrentHeightFeet();
+                            if (!isNewHeightFeetValid) {
+                                $scope.heightFeet = currentHeightFeet;
+                            } else if (newHeightFeet !== currentHeightFeet) {
+                                patientService.setHeightInInches((newHeightFeet * 12) + getCurrentHeightInches());
+                                $scope.heightFeet = newHeightFeet;
+                                updateCaloriesPerDay();
                             }
                         };
 
                         $scope.heightInchesChanged = function () {
-                            var heightInchesModel = $scope.heightInchesModel;
-                            var isValidInches = heightInchesModel
-                                    && !isNaN(heightInchesModel)
-                                    && heightInchesModel >= 0
-                                    && heightInchesModel <= 12;
-                            var isSameHeightInches = true;
-                            if (!isValidInches) {
-                                heightInchesModel = heightInches;
-                            } else {
-                                isSameHeightInches = heightInchesModel === heightInches;
-                            }
-                            heightInches = heightInchesModel;
-                            $scope.heightInchesModel = heightInchesModel;
-                            if (isValidInches && !isSameHeightInches) {
-                                calculateCaloriesPerDay();
+                            var newHeightInches = Number($scope.heightInches);
+                            var isNewHeightInchesValid = patientService.isValidHeightForInches(newHeightInches);
+                            var currentHeightInches = getCurrentHeightInches();
+                            if (!isNewHeightInchesValid) {
+                                $scope.heightInches = currentHeightInches;
+                            } else if (newHeightInches !== currentHeightInches) {
+                                patientService.setHeightInInches((getCurrentHeightFeet() * 12) + Number(newHeightInches));
+                                $scope.heightInches = newHeightInches;
+                                updateCaloriesPerDay();
                             }
                         };
 
                         $scope.weightInPoundsChanged = function () {
-                            var weightInPoundsModel = $scope.weightInPoundsModel;
-                            var isValidWeightInPounds = weightInPoundsModel
-                                    && !isNaN(weightInPoundsModel)
-                                    && weightInPoundsModel > 0
-                                    && weightInPoundsModel < 1000;
-                            var isSameWeightInPounds = true;
-                            if (!isValidWeightInPounds) {
-                                weightInPoundsModel = weightInPounds;
-                            } else {
-                                isSameWeightInPounds = weightInPoundsModel === weightInPounds;
-                            }
-                            weightInPounds = weightInPoundsModel;
-                            $scope.weightInPoundsModel = weightInPoundsModel;
-                            if (isValidWeightInPounds && !isSameWeightInPounds) {
-                                calculateCaloriesPerDay();
+                            var newWeightInPounds = $scope.weightInPounds;
+                            var isNewWeightValid = patientService.isValidWeightInPounds(newWeightInPounds);
+                            var currentWeightInPounds = patientService.getWeightInPounds();
+                            if (!isNewWeightValid) {
+                                $scope.weightInPounds = currentWeightInPounds;
+                            } else if (newWeightInPounds !== currentWeightInPounds) {
+                                patientService.setWeightInPounds(newWeightInPounds);
+                                $scope.weightInPounds = newWeightInPounds;
+                                updateCaloriesPerDay();
                             }
                         };
 
@@ -183,28 +155,42 @@ angular
                         }
 
                         function initOrdinalTrimester(startWeek) {
-                            var ordinalTrimester = 'First';
+                            var initOrdinalTrimester = 1;
                             if (startWeek > 12 && startWeek < 28) {
-                                ordinalTrimester = 'Second';
+                                initOrdinalTrimester = 2;
                             } else if (startWeek > 27) {
-                                ordinalTrimester = 'Third';
+                                initOrdinalTrimester = 3;
                             }
-                            return ordinalTrimester;
+                            return initOrdinalTrimester;
                         }
 
-                        function calculateCaloriesPerDay() {
-                            var massInKg = Number(weightInPounds) / 2.2046;
-                            var heightInCm = calcHeightInCm(heightFeet, heightInches);
-
-                            // using Mifflin St Jeor equation
-                            $scope.caloriesPerDay = (10 * massInKg) + (6.25 * heightInCm) - (5 * Number(age)) - 161;
+                        function initOrdinalTrimesterLabel(ordinalTrimester) {
+                            var ordinalTrimesterLabel = 'First';
+                            if (ordinalTrimester === 2) {
+                                ordinalTrimesterLabel = 'Second';
+                            } else if (ordinalTrimester === 3) {
+                                ordinalTrimesterLabel = 'Third';
+                            }
+                            return ordinalTrimesterLabel;
                         }
 
-                        function calcHeightInCm(heightFeet, heightInches) {
-                            var totalInches = (Number(heightFeet) * 12) + Number(heightInches);
-                            return totalInches * 2.54;
+                        function getCurrentHeightFeet() {
+                            return Math.floor(getCurrentHeightInInches() / 12);
                         }
 
-                        calculateCaloriesPerDay();
+                        function getCurrentHeightInInches() {
+                            return patientService.getHeightInInches();
+                        }
+
+                        function getCurrentHeightInches() {
+                            return getCurrentHeightInInches() % 12;
+                        }
+
+                        function updateCaloriesPerDay() {
+                            var heightInInches = (Number($scope.heightFeet) * 12) + Number($scope.heightInches);
+                            $scope.caloriesPerDay = nutritionService.getIdealCaloriesPerDay($scope.age, heightInInches, $scope.weightInPounds, ordinalTrimester);
+                        }
+
+                        updateCaloriesPerDay()
 
                     } ]);

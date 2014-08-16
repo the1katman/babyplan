@@ -1,10 +1,10 @@
 "use strict";
 
 angular
-        .module('BabyPlanApp', ['localStorage', 'browserSupport', 'firstLetterCapitalize'])
+        .module('BabyPlanApp', ['localStorage', 'browserSupport', 'patient', 'nutrition', 'firstLetterCapitalize'])
         .controller('BabyPlanController',
-                [ '$scope', 'localStorageService', 'browserSupportService',
-                    function ($scope, localStorageService, browserSupportService) {
+                [ '$scope', 'localStorageService', 'browserSupportService', 'patientService', 'nutritionService',
+                    function ($scope, localStorageService, browserSupportService, patientService, nutritionService) {
 
                         $scope.appointmentsCategorySelected = true;
                         $scope.labsCategorySelected = true;
@@ -36,6 +36,8 @@ angular
                             $scope.babyAppointment2Date = babyAppointment2Date;
                         }
 
+                        initTrimesterCaloriesPerDay();
+
                         $scope.categorySelected = function () {
                             var selectedCategories = getSelectedCategories();
                             $scope.selectedCategories = getSelectedCategoriesString(selectedCategories);
@@ -44,6 +46,9 @@ angular
                         $scope.resetPlan = function () {
                             localStorageService.clear();
                             $scope.hadFirstAppointment = false;
+
+                            patientService.init();
+                            initTrimesterCaloriesPerDay();
                         };
 
                         function getSelectedCategories() {
@@ -93,6 +98,24 @@ angular
                             }
 
                             return date;
+                        }
+
+                        function initTrimesterCaloriesPerDay() {
+                            var patient = {
+                                age: patientService.getAge(),
+                                heightInInches: patientService.getHeightInInches(),
+                                weightInPounds: patientService.getWeightInPounds()
+                            };
+                            $scope.firstTrimesterCaloriesPerDay = calculateIdealCaloriesPerDay(patient, 1);
+                            $scope.secondTrimesterCaloriesPerDay = calculateIdealCaloriesPerDay(patient, 2);
+                            $scope.thirdTrimesterCaloriesPerDay = calculateIdealCaloriesPerDay(patient, 3);
+                        }
+
+                        function calculateIdealCaloriesPerDay(patient, ordinalTrimester) {
+                            var age = patient.age;
+                            var heightInInches = patient.heightInInches;
+                            var weightInPounds = patient.weightInPounds;
+                            return nutritionService.getIdealCaloriesPerDay(age, heightInInches, weightInPounds, ordinalTrimester);
                         }
 
                         $scope.categorySelected();

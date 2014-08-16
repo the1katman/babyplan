@@ -4,7 +4,7 @@
 
 .one-digit-input,
 .two-digit-input,
-.three-digit-input{
+.three-digit-input {
     font-size: 1.25rem;
     text-align: center;
 }
@@ -23,5 +23,9 @@
 
 .caloric-result-panel {
     margin-bottom: 1rem;
+    text-align: center;
+}
+
+.baby-plan-button-panel {
     text-align: center;
 }
