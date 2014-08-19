@@ -149,10 +149,12 @@
                         <span ng-if="hadFirstAppointment">
                             Baby Appointment #1<br/>
                             <span class="appointment-timestamp">
-                                {{ firstAppointmentDate | date:'h:mm a' }}
-                                on {{ firstAppointmentDate | date:'EEE, MMM dd yyyy' }}
-                                with {{ midwifeFirstName | firstLetterCapitalize }}
-                                {{ midwifeLastName | firstLetterCapitalize }}<span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span>
+                                <a href="online_appointment_midwife_summary.html">
+                                    {{ firstAppointmentDate | date:'h:mm a' }}
+                                    on {{ firstAppointmentDate | date:'EEE, MMM dd yyyy' }}
+                                    with {{ midwifeFirstName | firstLetterCapitalize }}
+                                    {{ midwifeLastName | firstLetterCapitalize }}<span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span>
+                                </a>
                             </span>
                         </span>
                 </h5>
