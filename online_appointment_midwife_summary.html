@@ -16,6 +16,7 @@
     <script src="js/angular.min.js" type="text/javascript"></script>
     <script src="app/common/localStorage.js" type="text/javascript"></script>
     <script src="app/common/browserSupport/browserSupport.js" type="text/javascript"></script>
+    <script src="app/common/filter/firstLetterCapitalize.js" type="text/javascript"></script>
     <script src="app/pages/online_appointment_midwife_summary/online_appointment_midwife_summary.js"
             type="text/javascript"></script>
 
@@ -66,11 +67,12 @@
                     </div>
                     <div class="small-8 medium-9 columns">
                         <h3>
-                            Suzy Q.
+                            {{ midwifeFirstName | firstLetterCapitalize }} {{ midwifeLastName | firstLetterCapitalize }}
+                            <span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span>
                         </h3>
                         <h4>
                             Online Appointment<br/>
-                            A little while ago
+                            {{ firstAppointmentDate | date:'EEEE, MMMM dd yyyy @ h:mm a' }}
                         </h4>
                     </div>
                 </div>
@@ -97,7 +99,7 @@
                     </div>
                     <div class="small-12 medium-10 columns question-answer-panel">
                         Q: When is my due date?<br/>
-                        A: It will be on [a day 32 weeks from now].
+                        A: It will be on or around {{ dueDate | date:'EEEE, MMMM dd yyyy' }}.
                     </div>
                 </div>
 
