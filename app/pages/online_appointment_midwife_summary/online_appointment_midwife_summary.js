@@ -15,7 +15,7 @@ angular
 
                         var firstAppointmentDate = new Date(firstAppointmentDateString);
                         var dueDate = new Date();
-                        dueDate.setDate(firstAppointmentDate.getDate() + (7 * 32));
+                        dueDate.setDate(firstAppointmentDate.getDate() + (7 * 36));
 
                         $scope.dueDate = dueDate;
 
