@@ -1,0 +1,18 @@
+.section-title,
+.photo-panel,
+.question-label,
+.baby-plan-button-panel {
+    text-align: center;
+}
+
+.row .row.question-answer-row {
+    margin-bottom: 1.25rem;
+}
+
+.panel.callout > *:last-child {
+    margin-bottom: 0;
+}
+
+.question-answer-panel {
+    line-height: 1.5rem;
+}
