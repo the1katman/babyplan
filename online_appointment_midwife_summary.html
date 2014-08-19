@@ -129,8 +129,70 @@
                 Changes
             </h2>
 
-            <div class="panel radius">
-                Coming soon...
+            <div class="panel radius changes-panel">
+                <div class="row changes-row-header">
+                    <div class="small-2 medium-1 columns category-icon">
+                        <h3>
+                            <i class="fi-clock"></i>
+                        </h3>
+                    </div>
+                    <div class="small-10 medium-11 columns">
+                        <h3>Appointments</h3>
+                    </div>
+                </div>
+
+                <div class="row changes-row appointment-row">
+                    <div class="column">
+                        <h5>
+                            <span ng-if="!hasBabyAppointment2Date">
+                                Week 8<br/>
+                                <a href="find_obgyn.html">Schedule Baby Appointment #2</a><br/>
+                            </span>
+                            <span ng-if="hasBabyAppointment2Date">
+                                Baby Appointment #2<br/>
+                                <span class="appointment-timestamp">
+                                    <a href="find_obgyn.html">
+                                        Scheduled for {{ babyAppointment2Date | date:'h:mm a' }}
+                                        on {{ babyAppointment2Date | date:'EEE, MMM dd yyyy' }}
+                                        with {{ doctorFirstName | firstLetterCapitalize }}
+                                        {{ doctorLastName | firstLetterCapitalize }}<span
+                                            ng-if="doctorCredentials"> {{ doctorCredentials | uppercase }}</span></a>
+                               </span>
+                           </span>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="row changes-row-header">
+                    <div class="small-2 medium-1 columns category-icon">
+                        <h3>
+                            <i class="fi-clipboard"></i>
+                        </h3>
+                    </div>
+                    <div class="small-10 medium-11 columns">
+                        <h3>Labs</h3>
+                    </div>
+                </div>
+
+                <div class="row changes-row labs-row">
+                    <div class="column">
+                        <h5 class="dark-row-panel">
+                            <span ng-if="!hasLabAppointmentDate">
+                                Weeks 5 - 7<br/>
+                                <a href="schedule_lab_appointment.html">Schedule Lab Appointment #1</a><br/>
+                            </span>
+                            <span ng-if="hasLabAppointmentDate">
+                                Lab Appointment #1<br/>
+                                <span class="appointment-timestamp">
+                                    <a href="schedule_lab_appointment.html">
+                                        Scheduled for {{ labAppointmentDate | date:'h:mm a' }}
+                                        on {{ labAppointmentDate | date:'EEE, MMM dd yyyy' }}
+                                    </a>
+                                </span>
+                            </span>
+                        </h5>
+                    </div>
+                </div>
             </div>
 
             <div class="baby-plan-button-panel">

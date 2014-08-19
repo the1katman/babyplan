@@ -142,21 +142,21 @@
             </div>
             <div class="small-10 medium-11 columns">
                 <h5 class="category-row-content-panel">
-                        <span ng-if="!hadFirstAppointment">
-                            Week 4<br/>
-                            <a href="find_midwife.html">Schedule Baby Appointment #1</a><br/>
+                    <span ng-if="!hadFirstAppointment">
+                        Week 4<br/>
+                        <a href="find_midwife.html">Schedule Baby Appointment #1</a><br/>
+                    </span>
+                    <span ng-if="hadFirstAppointment">
+                        Baby Appointment #1<br/>
+                        <span class="appointment-timestamp">
+                            <a href="online_appointment_midwife_summary.html">
+                                {{ firstAppointmentDate | date:'h:mm a' }}
+                                on {{ firstAppointmentDate | date:'EEE, MMM dd yyyy' }}
+                                with {{ midwifeFirstName | firstLetterCapitalize }}
+                                {{ midwifeLastName | firstLetterCapitalize }}<span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span>
+                            </a>
                         </span>
-                        <span ng-if="hadFirstAppointment">
-                            Baby Appointment #1<br/>
-                            <span class="appointment-timestamp">
-                                <a href="online_appointment_midwife_summary.html">
-                                    {{ firstAppointmentDate | date:'h:mm a' }}
-                                    on {{ firstAppointmentDate | date:'EEE, MMM dd yyyy' }}
-                                    with {{ midwifeFirstName | firstLetterCapitalize }}
-                                    {{ midwifeLastName | firstLetterCapitalize }}<span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span>
-                                </a>
-                            </span>
-                        </span>
+                    </span>
                 </h5>
             </div>
         </div>
@@ -191,7 +191,7 @@
             <div class="small-10 medium-11 columns">
                 <h5 class="category-row-content-panel">
                     <span ng-if="!hasBabyAppointment2Date">
-                        Weeks 8<br/>
+                        Week 8<br/>
                         <a href="find_obgyn.html">Schedule Baby Appointment #2</a><br/>
                     </span>
                     <span ng-if="hasBabyAppointment2Date">

@@ -1,6 +1,7 @@
 .section-title,
 .photo-panel,
 .question-label,
+.category-icon,
 .baby-plan-button-panel {
     text-align: center;
 }
@@ -15,4 +16,29 @@
 
 .question-answer-panel {
     line-height: 1.5rem;
+}
+
+.changes-panel {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.changes-row {
+    padding-top: 0.25rem;
+}
+
+.row .row.changes-row {
+    margin-bottom: 1rem;
+}
+
+.appointment-row {
+    background: #ffff00; /* yellow */
+}
+
+.labs-row {
+    background: #4b0082; /* indigo */
+}
+
+.panel h5.dark-row-panel {
+    color: #fff; /* white */
 }
