@@ -1,9 +1,22 @@
+.header-title {
+    margin-bottom: 0;
+}
+
+.header-subtitle {
+    margin-top: 0;
+    color: grey;
+}
+
 .pregnant-image-panel {
     text-align: center;
 }
 
-.first-paragragh-panel {
+div + p {
     margin-top: 1rem;
+}
+
+.current-feature-item {
+    text-transform: uppercase;
 }
 
 .workflow-panel {
