@@ -22,15 +22,11 @@ a.reset-plan-button:hover,
 .section-top-separator,
 .row .row.plan-control-panel {
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .plan-control-selector {
     text-align: right;
-}
-
-.plan-controls-bottom-separator {
-    margin-top: 0;
 }
 
 .section-panel {
