@@ -8,7 +8,7 @@ angular
 
                         $scope.appointmentsCategorySelected = true;
                         $scope.labsCategorySelected = true;
-                        $scope.nutritionCategorySelected = false;
+                        $scope.nutritionCategorySelected = true;
 
                         var firstAppointmentDate = getDateFromLocalStorage('firstAppointmentDate');
                         $scope.hadFirstAppointment = firstAppointmentDate !== null;
