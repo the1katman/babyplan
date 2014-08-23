@@ -28,7 +28,7 @@
 }
 
 .panel h6.change-icon {
-    line-height: 2.5rem;
+    margin-top: 1rem;
     text-align: center;
     color: #00ff00; /* lime */
 }
