@@ -6,7 +6,7 @@ angular
                 [ '$scope', 'localStorageService', 'browserSupportService', 'radioClassService',
                     function ($scope, localStorageService, browserSupportService, radioClassService) {
 
-                        $scope.selectedDate = new Date("September 1, 2014 8:00");
+                        $scope.selectedDate = new Date("October 1, 2014 8:00");
 
                         var currentHighlightedDate;
                         var currentHighlightedTime;
