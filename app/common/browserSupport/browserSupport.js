@@ -25,7 +25,7 @@ angular
                         // try to set the document mode to the empty string
                         setDocumentMode('');
 
-                        isIELessThan11 = typeof document.documentMode === 'number' || eval("/*@cc_on!@*/!1");
+                        isIELessThan11 = typeof document.documentMode === 'number' && eval("/*@cc_on!@*/!1");
                         // reset the document mode for non-ie browsers
                         setDocumentMode(cachedDocumentMode);
 
