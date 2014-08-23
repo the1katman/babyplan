@@ -51,10 +51,13 @@
 
 <!-- main content -->
 <section>
-<h1 class="baby-plan-title">Baby Plan</h1>
-<a href="#" ng-click="resetPlan()" class="button tiny radius reset-plan-button">Reset plan</a>
 
-<hr class="section-top-separator"/>
+<div class="page-title-panel">
+    <h2 class="baby-plan-title">Baby Plan</h2>
+    <a href="#" ng-click="resetPlan()" class="button tiny radius reset-plan-button">Reset plan</a>
+</div>
+
+<hr class="page-title-separator"/>
 
 <!-- plan controls -->
 <div class="row">
@@ -92,45 +95,45 @@
 <!-- pregnancy section -->
 <div class="row">
     <div class="column section-panel pregnancy-plan-panel">
-        <h2>
+        <h3>
             Pregnancy
-        </h2>
+        </h3>
 
         <hr class="section-top-separator"/>
 
-        <h3 class="plan-panel-title">
+        <h4 class="plan-panel-title">
             First Trimester
-        </h3>
-
-        <h4>
-            Weeks 1 - 2: The Beginning
         </h4>
+
+        <h5>
+            Weeks 1 - 2: The Beginning
+        </h5>
 
         <div ng-show="nutritionCategorySelected" class="row nutrition-row">
             <div class="small-2 medium-1 columns category-row-icon-panel">
                 <i class="fi-trees"></i>
             </div>
             <div class="small-10 medium-11 columns">
-                <h5 class="category-row-content-panel">
+                <h6 class="category-row-content-panel">
                     Weeks 1 - 2<br/>
                     <a href="nutrition.html#/weeks/1/2">{{ firstTrimesterCaloriesPerDay | number:0 }} calories / day</a>
-                </h5>
+                </h6>
             </div>
         </div>
 
-        <h4>
+        <h5>
             Weeks 3 - 8: An Embryo
-        </h4>
+        </h5>
 
         <div ng-show="nutritionCategorySelected" class="row nutrition-row">
             <div class="small-2 medium-1 columns category-row-icon-panel">
                 <i class="fi-trees"></i>
             </div>
             <div class="small-10 medium-11 columns">
-                <h5 class="category-row-content-panel">
+                <h6 class="category-row-content-panel">
                     Weeks 3 - 8<br/>
                     <a href="nutrition.html#/weeks/3/8">{{ firstTrimesterCaloriesPerDay | number:0 }} calories / day</a>
-                </h5>
+                </h6>
             </div>
         </div>
 
@@ -139,7 +142,7 @@
                 <i class="fi-clock"></i>
             </div>
             <div class="small-10 medium-11 columns">
-                <h5 class="category-row-content-panel">
+                <h6 class="category-row-content-panel">
                     <span ng-if="!hadFirstAppointment">
                         Week 4<br/>
                         <a href="find_midwife.html">Schedule Baby Appointment #1</a><br/>
@@ -155,7 +158,7 @@
                             </a>
                         </span>
                     </span>
-                </h5>
+                </h6>
             </div>
         </div>
 
@@ -164,7 +167,7 @@
                 <i class="fi-clipboard"></i>
             </div>
             <div class="small-10 medium-11 columns">
-                <h5 class="category-row-content-panel dark-row-panel">
+                <h6 class="category-row-content-panel dark-row-panel">
                     <span ng-if="!hasLabAppointmentDate">
                         Weeks 5 - 7<br/>
                         <a href="schedule_lab_appointment.html">Schedule Lab Appointment #1</a><br/>
@@ -178,7 +181,7 @@
                             </a>
                         </span>
                     </span>
-                </h5>
+                </h6>
             </div>
         </div>
 
@@ -187,7 +190,7 @@
                 <i class="fi-clock"></i>
             </div>
             <div class="small-10 medium-11 columns">
-                <h5 class="category-row-content-panel">
+                <h6 class="category-row-content-panel">
                     <span ng-if="!hasBabyAppointment2Date">
                         Week 8<br/>
                         <a href="find_obgyn.html">Schedule Baby Appointment #2</a><br/>
@@ -202,66 +205,66 @@
                                 {{ doctorLastName | firstLetterCapitalize }}<span ng-if="doctorCredentials"> {{ doctorCredentials | uppercase }}</span></a>
                         </span>
                     </span>
-                </h5>
+                </h6>
             </div>
         </div>
 
-        <h4>
+        <h5>
             Weeks 9 - 12: A Fetus
-        </h4>
+        </h5>
 
         <div ng-show="nutritionCategorySelected" class="row nutrition-row">
             <div class="small-2 medium-1 columns category-row-icon-panel">
                 <i class="fi-trees"></i>
             </div>
             <div class="small-10 medium-11 columns">
-                <h5 class="category-row-content-panel">
+                <h6 class="category-row-content-panel">
                     Weeks 9 - 12<br/>
                     <a href="nutrition.html#/weeks/9/12">{{ firstTrimesterCaloriesPerDay | number:0 }} calories /
                         day</a>
-                </h5>
+                </h6>
             </div>
         </div>
 
-        <h3 class="plan-panel-title">
+        <h4 class="plan-panel-title">
             Second Trimester
-        </h3>
-
-        <h4>
-            Weeks 13 - 27: "Golden" Period
         </h4>
+
+        <h5>
+            Weeks 13 - 27: "Golden" Period
+        </h5>
 
         <div ng-show="nutritionCategorySelected" class="row nutrition-row">
             <div class="small-2 medium-1 columns category-row-icon-panel">
                 <i class="fi-trees"></i>
             </div>
             <div class="small-10 medium-11 columns">
-                <h5 class="category-row-content-panel">
+                <h6 class="category-row-content-panel">
                     Weeks 13 - 27<br/>
                     <a href="nutrition.html#/weeks/13/27">{{ secondTrimesterCaloriesPerDay | number:0 }} calories /
                         day</a>
-                </h5>
+                </h6>
             </div>
         </div>
 
-        <h3 class="plan-panel-title">
+        <h4 class="plan-panel-title">
             Third Trimester
-        </h3>
-
-        <h4>
-            Weeks 28 - 40 (Birth): The Finale
         </h4>
+
+        <h5>
+            Weeks 28 - 40 (Birth): The Finale
+        </h5>
 
         <div ng-show="nutritionCategorySelected" class="row nutrition-row">
             <div class="small-2 medium-1 columns category-row-icon-panel">
                 <i class="fi-trees"></i>
             </div>
             <div class="small-10 medium-11 columns">
-                <h5 class="category-row-content-panel">
+                <h6 class="category-row-content-panel">
                     Weeks 28 - 40<br/>
                     <a href="nutrition.html#/weeks/28/40">{{ thirdTrimesterCaloriesPerDay | number:0 }} calories /
                         day</a>
-                </h5>
+                </h6>
             </div>
         </div>
     </div>

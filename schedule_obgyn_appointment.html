@@ -52,40 +52,40 @@
 
 <!-- main content -->
 <section>
-    <h1>
+    <h2 class="page-title-panel">
         Schedule Baby Appointment #2
-    </h1>
+    </h2>
 
-    <hr/>
+    <hr class="page-title-separator"/>
 
-    <h4>
+    <h5>
         Health Provider:
-    </h4>
+    </h5>
 
-    <h5 class="content-item health-professional-title">
+    <h6 class="content-item health-professional-title">
         {{ doctorFirstName | firstLetterCapitalize }} {{ doctorLastName | firstLetterCapitalize }}<span
             ng-if="doctorCredentials"> {{ doctorCredentials | uppercase }}</span>
-    </h5>
+    </h6>
 
     <hr/>
 
-    <h4>
+    <h5>
         Location:
-    </h4>
-
-    <h5 class="content-item">
-        A location near you
     </h5>
+
+    <h6 class="content-item">
+        A location near you
+    </h6>
 
     <hr/>
 
-    <h4>
+    <h5>
         Date:
-    </h4>
-
-    <h5 class="content-item">
-        {{ selectedDate | date:'fullDate' }}
     </h5>
+
+    <h6 class="content-item">
+        {{ selectedDate | date:'fullDate' }}
+    </h6>
 
     <h6 class="date-header">
         September 2014
@@ -171,19 +171,19 @@
 
     <hr/>
 
-    <h4>
+    <h5>
         Time:
-    </h4>
-
-    <h5 class="content-item">
-        {{ selectedDate | date:'h:mm a' }}
     </h5>
+
+    <h6 class="content-item">
+        {{ selectedDate | date:'h:mm a' }}
+    </h6>
 
     <div class="row">
         <div class="small-6 columns time-column">
-            <h5>
+            <h6>
                 AM
-            </h5>
+             </h6>
 
             <div>
                 <a id="8" ng-click="selectHour(8)" class="button medium radius time-slot">8:00</a>
@@ -200,9 +200,9 @@
         </div>
 
         <div class="small-6 columns time-column">
-            <h5>
+            <h6>
                 PM
-            </h5>
+            </h6>
 
             <div>
                 <a id="13" ng-click="selectHour(13)" class="button medium radius time-slot">1:00</a>
@@ -221,9 +221,9 @@
 
     <hr/>
 
-    <h4>
+    <h5>
         Confirmation:
-    </h4>
+    </h5>
 
     <div class="confirm-appointment-button-panel">
         <a href="#" data-reveal-id="confirm_appointment_modal" class="button small radius">Confirm Your Appointment</a>
@@ -231,9 +231,9 @@
 
     <!-- confirm appointment modal-->
     <div id="confirm_appointment_modal" data-reveal class="reveal-modal">
-        <h3 class="confirm-appointment-title">
+        <h4 class="confirm-appointment-title">
             Baby Appointment #2
-        </h3>
+        </h4>
         <h6>
             {{ doctorFirstName | firstLetterCapitalize }} {{ doctorLastName | firstLetterCapitalize }}<span
                 ng-if="doctorCredentials"> {{ doctorCredentials | uppercase }}</span><br/>

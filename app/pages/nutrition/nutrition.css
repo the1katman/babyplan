@@ -1,7 +1,3 @@
-.section-top-separator {
-    margin-bottom: 0;
-}
-
 .calorie-section-panel {
     margin-top: 0;
     margin-bottom: 0;
@@ -76,10 +72,7 @@
     background: #32cd32; /* limegreen */
 }
 
-.section-bottom-separator {
-    margin-top: 0;
-}
-
 .baby-plan-button-panel {
+    margin-top: 1.25rem;
     text-align: center;
 }

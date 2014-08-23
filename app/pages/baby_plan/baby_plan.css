@@ -8,7 +8,7 @@
 
 .reset-plan-button {
     margin-left: 1.75rem;
-    vertical-align: middle;
+    vertical-align: super;
 }
 
 a.reset-plan-button:link,

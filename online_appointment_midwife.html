@@ -48,15 +48,16 @@
 
         <!-- main content -->
         <section>
-            <h1>
+            <h2 class="page-title-panel">
                 Baby Appointment #1
-            </h1>
+            </h2>
 
-            <hr/>
+            <hr class="page-title-separator"/>
 
-            <h3 class="online-appointment-midwife-label">
-                {{ midwifeFirstName | firstLetterCapitalize }} {{ midwifeLastName | firstLetterCapitalize }}<span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span>
-            </h3>
+            <h4 class="online-appointment-midwife-label">
+                {{ midwifeFirstName | firstLetterCapitalize }} {{ midwifeLastName | firstLetterCapitalize }}<span
+                    ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span>
+            </h4>
 
             <div class="online-appointment-midwife-image-panel">
                 <img data-interchange="[img/online_appointment_midwife/online_appointment_midwife_880x581.jpg, (only screen)], [img/online_appointment_midwife/online_appointment_midwife_250x165.jpg, (small)], [img/online_appointment_midwife/online_appointment_midwife_648x428.jpg, (medium)]]">
@@ -68,7 +69,9 @@
             <hr/>
 
             <div class="appointment-summary-button-panel">
-                <a href="online_appointment_midwife_summary.html" class="button small radius">Go To Your Appointment Summary</a>
+                <a href="online_appointment_midwife_summary.html" class="button small radius">
+                    Go To Your Appointment Summary
+                </a>
             </div>
         </section>
 

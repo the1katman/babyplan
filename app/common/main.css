@@ -1,14 +1,23 @@
 nav.tab-bar,
 nav.top-bar,
 .footer-panel {
-    background-color: #183d68;  /* darker blue */
+    background-color: #183d68; /* darker blue */
 }
 
 a.tab-bar-title:link,
 a.tab-bar-title:active,
 a.tab-bar-title:visited,
 a.tab-bar-title:hover {
-    color: #fff;  /* white */
+    color: #fff; /* white */
+}
+
+.page-title-panel {
+    margin-top: 0.5rem;
+}
+
+.page-title-separator {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
 }
 
 .footer-panel {
