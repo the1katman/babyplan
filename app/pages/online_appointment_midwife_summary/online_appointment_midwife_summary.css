@@ -24,21 +24,31 @@
 }
 
 .changes-row {
-    padding-top: 0.25rem;
+    background: #fff; /* white */
+}
+
+.panel h6.change-icon {
+    line-height: 2.5rem;
+    text-align: center;
+    color: #00ff00; /* lime */
 }
 
 .row .row.changes-row {
     margin-bottom: 1rem;
 }
 
-.appointment-row {
+.appointment-columns {
     background: #ffff00; /* yellow */
 }
 
-.labs-row {
+.labs-columns {
     background: #4b0082; /* indigo */
 }
 
 .panel h6.dark-row-panel {
     color: #fff; /* white */
+}
+
+.change-row-content {
+    padding-top: 0.5rem;
 }

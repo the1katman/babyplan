@@ -26,186 +26,196 @@
 <body ng-controller="OnlineAppointmentSummaryController">
 
 <div class="row">
-    <div class="small-12 columns">
-        <!-- nav for small screen -->
-        <nav class="tab-bar show-for-small">
-            <section class="middle tab-bar-section">
-                <h1>
-                    <a href="index.html" class="tab-bar-title">Home</a>
-                </h1>
-            </section>
-        </nav>
+<div class="small-12 columns">
+<!-- nav for small screen -->
+<nav class="tab-bar show-for-small">
+    <section class="middle tab-bar-section">
+        <h1>
+            <a href="index.html" class="tab-bar-title">Home</a>
+        </h1>
+    </section>
+</nav>
 
-        <!-- nav for medium screens and up -->
-        <nav class="top-bar hide-for-small" data-topbar>
-            <ul class="title-area">
-                <li class="name">
-                    <h1>
-                        <a href="index.html">Home</a>
-                    </h1>
-                </li>
-            </ul>
-        </nav>
+<!-- nav for medium screens and up -->
+<nav class="top-bar hide-for-small" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <h1>
+                <a href="index.html">Home</a>
+            </h1>
+        </li>
+    </ul>
+</nav>
 
-        <!-- main content -->
-        <section>
-            <h2 class="page-title-panel">
-                Baby Appointment #1 - Summary
-            </h2>
+<!-- main content -->
+<section>
+    <h2 class="page-title-panel">
+        Baby Appointment #1 - Summary
+    </h2>
 
-            <hr class="page-title-separator"/>
+    <hr class="page-title-separator"/>
 
-            <h3 class="section-title">
-                Overview
-            </h3>
+    <h3 class="section-title">
+        Overview
+    </h3>
 
-            <div class="panel radius">
-                <div class="row">
-                    <div class="small-4 medium-3 columns photo-panel">
-                        <img data-interchange="[img/no_photo/caduceus_90x107.jpg, (only screen)], [img/no_photo/caduceus_54x64.jpg, (small)]]">
-                        <noscript><img src="img/no_photo/caduceus_90x107.jpg"></noscript>
-                    </div>
-                    <div class="small-8 medium-9 columns">
-                        <h4>
-                            {{ midwifeFirstName | firstLetterCapitalize }} {{ midwifeLastName | firstLetterCapitalize }}
-                            <span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span>
-                        </h4>
-                        <h5>
-                            Online Appointment<br/>
-                            {{ firstAppointmentDate | date:'EEEE, MMMM dd yyyy @ h:mm a' }}
-                        </h5>
-                    </div>
-                </div>
+    <div class="panel radius">
+        <div class="row">
+            <div class="small-4 medium-3 columns photo-panel">
+                <img data-interchange="[img/no_photo/caduceus_90x107.jpg, (only screen)], [img/no_photo/caduceus_54x64.jpg, (small)]]">
+                <noscript><img src="img/no_photo/caduceus_90x107.jpg"></noscript>
             </div>
-
-            <h3 class="section-title">
-                Q & A
-            </h3>
-
-            <div class="panel callout radius">
-                <div class="row question-answer-row">
-                    <div class="small-12 medium-2 columns question-label">
-                        <h4>1</h4>
-                    </div>
-                    <div class="small-12 medium-10 columns question-answer-panel">
-                        Q: Am I really pregnant?<br/>
-                        A: Yes. You are really pregnant.
-                    </div>
-                </div>
-
-                <div class="row question-answer-row">
-                    <div class="small-12 medium-2 columns question-label">
-                        <h4>2</h4>
-                    </div>
-                    <div class="small-12 medium-10 columns question-answer-panel">
-                        Q: When is my due date?<br/>
-                        A: It will be on or around {{ dueDate | date:'EEEE, MMMM dd yyyy' }}.
-                    </div>
-                </div>
-
-                <div class="row question-answer-row">
-                    <div class="small-12 medium-2 columns question-label">
-                        <h4>3</h4>
-                    </div>
-                    <div class="small-12 medium-10 columns question-answer-panel">
-                        Q: What tests do I need and when?<br/>
-                        A: You will need to be scheduled for some labs and tests throughout your pregnancy.
-                    </div>
-                </div>
-
-                <div class="row question-answer-row">
-                    <div class="small-12 medium-2 columns question-label">
-                        <h4>4</h4>
-                    </div>
-                    <div class="small-12 medium-10 columns question-answer-panel">
-                        Q: How much weight should I gain?<br/>
-                        A: You should maintain your current weight for the first trimester, add 200 calories per day in
-                        the second trimester, and add another 190 calories per day in the third trimester.
-                    </div>
-                </div>
+            <div class="small-8 medium-9 columns">
+                <h4>
+                    {{ midwifeFirstName | firstLetterCapitalize }} {{ midwifeLastName | firstLetterCapitalize }}
+                    <span ng-if="midwifeCredentials"> {{ midwifeCredentials | uppercase }}</span>
+                </h4>
+                <h5>
+                    Online Appointment<br/>
+                    {{ firstAppointmentDate | date:'EEEE, MMMM dd yyyy @ h:mm a' }}
+                </h5>
             </div>
-
-            <h3 class="section-title">
-                Changes
-            </h3>
-
-            <div class="panel radius changes-panel">
-                <div class="row changes-row-header">
-                    <div class="small-2 medium-1 columns category-icon">
-                        <h4>
-                            <i class="fi-clock"></i>
-                        </h4>
-                    </div>
-                    <div class="small-10 medium-11 columns">
-                        <h4>Appointments</h4>
-                    </div>
-                </div>
-
-                <div class="row changes-row appointment-row">
-                    <div class="column">
-                        <h6>
-                            <span ng-if="!hasBabyAppointment2Date">
-                                Week 8<br/>
-                                <a href="find_obgyn.html">Schedule Baby Appointment #2</a><br/>
-                            </span>
-                            <span ng-if="hasBabyAppointment2Date">
-                                Baby Appointment #2<br/>
-                                <span class="appointment-timestamp">
-                                    <a href="find_obgyn.html">
-                                        Scheduled for {{ babyAppointment2Date | date:'h:mm a' }}
-                                        on {{ babyAppointment2Date | date:'EEE, MMM dd yyyy' }}
-                                        with {{ doctorFirstName | firstLetterCapitalize }}
-                                        {{ doctorLastName | firstLetterCapitalize }}<span
-                                            ng-if="doctorCredentials"> {{ doctorCredentials | uppercase }}</span></a>
-                               </span>
-                           </span>
-                        </h6>
-                    </div>
-                </div>
-
-                <div class="row changes-row-header">
-                    <div class="small-2 medium-1 columns category-icon">
-                        <h4>
-                            <i class="fi-clipboard"></i>
-                        </h4>
-                    </div>
-                    <div class="small-10 medium-11 columns">
-                        <h4>Labs</h4>
-                    </div>
-                </div>
-
-                <div class="row changes-row labs-row">
-                    <div class="column">
-                        <h6 class="dark-row-panel">
-                            <span ng-if="!hasLabAppointmentDate">
-                                Weeks 5 - 7<br/>
-                                <a href="schedule_lab_appointment.html">Schedule Lab Appointment #1</a><br/>
-                            </span>
-                            <span ng-if="hasLabAppointmentDate">
-                                Lab Appointment #1<br/>
-                                <span class="appointment-timestamp">
-                                    <a href="schedule_lab_appointment.html">
-                                        Scheduled for {{ labAppointmentDate | date:'h:mm a' }}
-                                        on {{ labAppointmentDate | date:'EEE, MMM dd yyyy' }}
-                                    </a>
-                                </span>
-                            </span>
-                        </h6>
-                    </div>
-                </div>
-            </div>
-
-            <div class="baby-plan-button-panel">
-                <a href="baby_plan.html" class="button small radius">Return to Your Baby Plan</a>
-            </div>
-        </section>
-
-        <footer class="footer-panel">
-            <p class="footer-copyright">
-                &copy; 2014 YutYut, Inc. All rights reserved.
-            </p>
-        </footer>
+        </div>
     </div>
+
+    <h3 class="section-title">
+        Q & A
+    </h3>
+
+    <div class="panel callout radius">
+        <div class="row question-answer-row">
+            <div class="small-12 medium-2 columns question-label">
+                <h4>1</h4>
+            </div>
+            <div class="small-12 medium-10 columns question-answer-panel">
+                Q: Am I really pregnant?<br/>
+                A: Yes. You are really pregnant.
+            </div>
+        </div>
+
+        <div class="row question-answer-row">
+            <div class="small-12 medium-2 columns question-label">
+                <h4>2</h4>
+            </div>
+            <div class="small-12 medium-10 columns question-answer-panel">
+                Q: When is my due date?<br/>
+                A: It will be on or around {{ dueDate | date:'EEEE, MMMM dd yyyy' }}.
+            </div>
+        </div>
+
+        <div class="row question-answer-row">
+            <div class="small-12 medium-2 columns question-label">
+                <h4>3</h4>
+            </div>
+            <div class="small-12 medium-10 columns question-answer-panel">
+                Q: What tests do I need and when?<br/>
+                A: You will need to be scheduled for some labs and tests throughout your pregnancy.
+            </div>
+        </div>
+
+        <div class="row question-answer-row">
+            <div class="small-12 medium-2 columns question-label">
+                <h4>4</h4>
+            </div>
+            <div class="small-12 medium-10 columns question-answer-panel">
+                Q: How much weight will I gain?<br/>
+                A: Every pregnancy is different. You can expect to gain about 10 to 40 pounds.
+            </div>
+        </div>
+    </div>
+
+    <h3 class="section-title">
+        Baby Plan Changes
+    </h3>
+
+    <div class="panel radius changes-panel">
+        <div class="row changes-row-header">
+            <div class="small-2 medium-1 columns category-icon">
+                <h4>
+                    <i class="fi-clipboard"></i>
+                </h4>
+            </div>
+            <div class="small-10 medium-11 columns">
+                <h4>Labs</h4>
+            </div>
+        </div>
+
+        <div class="row changes-row">
+            <div class="small-2 medium-1 columns">
+                <h6 class="change-icon" style="height:100%;vertical-align: middle">
+                    <i class="fi-plus"></i>
+                </h6>
+            </div>
+            <div class="small-10 medium-11 columns labs-columns">
+                <h6 class="change-row-content dark-row-panel">
+                    <span ng-if="!hasLabAppointmentDate">
+                        Weeks 5 - 7<br/>
+                        <a href="schedule_lab_appointment.html">Schedule Lab Appointment #1</a><br/>
+                    </span>
+                    <span ng-if="hasLabAppointmentDate">
+                        Lab Appointment #1<br/>
+                        <span class="appointment-timestamp">
+                            <a href="schedule_lab_appointment.html">
+                                Scheduled for {{ labAppointmentDate | date:'h:mm a' }}
+                                on {{ labAppointmentDate | date:'EEE, MMM dd yyyy' }}
+                            </a>
+                        </span>
+                    </span>
+                </h6>
+            </div>
+        </div>
+
+        <div class="row changes-row-header">
+            <div class="small-2 medium-1 columns category-icon">
+                <h4>
+                    <i class="fi-clock"></i>
+                </h4>
+            </div>
+            <div class="small-10 medium-11 columns">
+                <h4>Appointments</h4>
+            </div>
+        </div>
+
+        <div class="row changes-row">
+            <div class="small-2 medium-1 columns">
+                <h6 class="change-icon">
+                    <i class="fi-plus"></i>
+                </h6>
+            </div>
+            <div class="small-10 medium-11 columns appointment-columns">
+                <h6 class="change-row-content">
+                    <span ng-if="!hasBabyAppointment2Date">
+                        Week 8<br/>
+                        <a href="find_obgyn.html">Schedule Baby Appointment #2</a><br/>
+                    </span>
+                    <span ng-if="hasBabyAppointment2Date">
+                        Baby Appointment #2<br/>
+                        <span class="appointment-timestamp">
+                            <a href="find_obgyn.html">
+                                Scheduled for {{ babyAppointment2Date | date:'h:mm a' }}
+                                on {{ babyAppointment2Date | date:'EEE, MMM dd yyyy' }}
+                                with {{ doctorFirstName | firstLetterCapitalize }}
+                                {{ doctorLastName | firstLetterCapitalize }}<span
+                                    ng-if="doctorCredentials"> {{ doctorCredentials | uppercase }}</span>
+                            </a>
+                       </span>
+                   </span>
+                </h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="baby-plan-button-panel">
+        <a href="baby_plan.html" class="button small radius">Return to Your Baby Plan</a>
+    </div>
+</section>
+
+<footer class="footer-panel">
+    <p class="footer-copyright">
+        &copy; 2014 YutYut, Inc. All rights reserved.
+    </p>
+</footer>
+</div>
 </div>
 
 <script src="js/jquery.js"></script>
