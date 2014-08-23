@@ -1,3 +1,7 @@
+section > div {
+    margin-top: 1.25rem;
+}
+
 .online-now-button-panel {
     text-align: right;
 }
