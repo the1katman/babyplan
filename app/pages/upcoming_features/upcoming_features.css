@@ -1,3 +1,4 @@
-.feature-title {
+.feature-title,
+.plan-item {
     text-transform: uppercase;
 }
