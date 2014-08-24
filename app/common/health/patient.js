@@ -24,10 +24,7 @@ angular
                     }
 
                     function isValidAge(age) {
-                        return age
-                                && !isNaN(age)
-                                && age > 0
-                                && age <= maxAge;
+                        return isValidNumberInRange(age, 1, maxAge);
                     }
 
                     function getAge() {
@@ -47,17 +44,11 @@ angular
                         }
                     }
 
-                    function isValidHeightForFeet(heightForFeet) {
-                        return heightForFeet
-                                && !isNaN(heightForFeet)
-                                && heightForFeet > 0
-                                && heightForFeet <= maxHeightForFeet;
-                    }
-
-                    function isValidHeightForInches(heightForInches) {
-                        return !isNaN(heightForInches)
-                                && heightForInches >= 0
-                                && heightForInches <= maxHeightForInches;
+                    function isValidNumberInRange(number, min, max) {
+                        return !isNaN(number)
+                                && /^\d+$/.test(number)
+                                && number >= min
+                                && number <= max;
                     }
 
                     function getHeightInInches() {
@@ -65,10 +56,7 @@ angular
                     }
 
                     function setHeightInInches(newHeightInInches) {
-                        if (newHeightInInches
-                                && !isNaN(newHeightInInches)
-                                && newHeightInInches > 0
-                                && newHeightInInches <= maxHeightInInches) {
+                        if (isValidNumberInRange(newHeightInInches, 1, maxHeightInInches)) {
                             localStorageService.set(heightInInchesKey, newHeightInInches);
                         }
                     }
@@ -81,10 +69,7 @@ angular
                     }
 
                     function isValidWeightInPounds(weightInPounds) {
-                        return weightInPounds
-                                && !isNaN(weightInPounds)
-                                && weightInPounds > 0
-                                && weightInPounds <= maxWeightInPounds;
+                        return isValidNumberInRange(weightInPounds, 1, maxWeightInPounds);
                     }
 
                     function getWeightInPounds() {
@@ -119,10 +104,10 @@ angular
                             setAge(newAge);
                         },
                         isValidHeightForFeet: function (feet) {
-                            return isValidHeightForFeet(feet);
+                            return isValidNumberInRange(feet, 1, maxHeightForFeet);
                         },
                         isValidHeightForInches: function (inches) {
-                            return isValidHeightForInches(inches);
+                            return isValidNumberInRange(inches, 0, maxHeightForInches);
                         },
                         getHeightInInches: function () {
                             return getHeightInInches();

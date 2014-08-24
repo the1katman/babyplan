@@ -83,7 +83,6 @@ angular
                                 $scope.age = currentAge;
                             } else if (newAge !== currentAge) {
                                 patientService.setAge(newAge);
-                                $scope.age = newAge;
                                 updateCaloriesPerDay();
                             }
                         };
@@ -96,7 +95,6 @@ angular
                                 $scope.heightFeet = currentHeightFeet;
                             } else if (newHeightFeet !== currentHeightFeet) {
                                 patientService.setHeightInInches((newHeightFeet * 12) + getCurrentHeightInches());
-                                $scope.heightFeet = newHeightFeet;
                                 updateCaloriesPerDay();
                             }
                         };
@@ -109,7 +107,6 @@ angular
                                 $scope.heightInches = currentHeightInches;
                             } else if (newHeightInches !== currentHeightInches) {
                                 patientService.setHeightInInches((getCurrentHeightFeet() * 12) + Number(newHeightInches));
-                                $scope.heightInches = newHeightInches;
                                 updateCaloriesPerDay();
                             }
                         };
@@ -122,7 +119,6 @@ angular
                                 $scope.weightInPounds = currentWeightInPounds;
                             } else if (newWeightInPounds !== currentWeightInPounds) {
                                 patientService.setWeightInPounds(newWeightInPounds);
-                                $scope.weightInPounds = newWeightInPounds;
                                 updateCaloriesPerDay();
                             }
                         };
