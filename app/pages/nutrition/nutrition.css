@@ -46,30 +46,57 @@
     }
 }
 
-.one-digit-input,
-.two-digit-input,
-.three-digit-input {
+/*
+ remove the spinners from the input type number for webkit-based browsers
+*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*
+ remove the spinners from the input type number for firefox
+*/
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input[type=number].one-digit-input,
+input[type=number].two-digit-input,
+input[type=number].three-digit-input {
+    display: inline;
+    margin-bottom: 0;
     font-size: 1.25rem;
     text-align: center;
 }
 
-.one-digit-input {
-    width: 2.25rem;
+input[type=number].one-digit-input {
+    width: 3rem;
 }
 
-.two-digit-input {
-    width: 2.75rem;
+input[type=number].two-digit-input {
+    width: 3.5rem;
 }
 
-.three-digit-input {
-    width: 3.25rem;
+input[type=number].three-digit-input {
+    width: 4rem;
+}
+
+.caloric-input-columns {
+    margin-bottom: 0.5rem;
+}
+
+.caloric-factor-input,
+.input-unit {
+    display: inline;
 }
 
 .caloric-result-panel {
     margin-top: 0;
     margin-bottom: 0;
     text-align: center;
-    background: #32cd32; /* limegreen */
+    background: #32cd32; /* lime green */
 }
 
 .baby-plan-button-panel {

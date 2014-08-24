@@ -7,14 +7,14 @@
         <div class="small-12 medium-8 large-7 small-centered columns">
             <div class="panel callout radius">
                 <div class="row">
-                    <div class="small-4 medium-6 columns caloric-factor-label">
+                    <div class="small-3 medium-6 columns caloric-factor-label">
                         <h4>
                             Age
                         </h4>
                     </div>
-                    <div class="small-8 medium-6 columns">
+                    <div class="small-9 medium-6 columns">
                         <label>
-                            <input class="two-digit-input" maxlength="2"
+                            <input type="number" class="two-digit-input" maxlength="2"
                                    ng-model="age"
                                    ng-change="ageChanged()"
                                    ng-delay="1000"/>
@@ -22,44 +22,45 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="small-4 medium-6 columns caloric-factor-label">
+                    <div class="small-3 medium-6 columns caloric-factor-label">
                         <h4>
                             Height
                         </h4>
                     </div>
-                    <div class="small-8 medium-6 columns">
-                        <label>
-                            <h4>
-                                <input class="one-digit-input" maxlength="1"
-                                       ng-model="heightFeet"
-                                       ng-change="heightFeetChanged()"
-                                       ng-delay="1000"/> ft
-                                <input class="two-digit-input" maxlength="2"
-                                       ng-model="heightInches"
-                                       ng-change="heightInchesChanged()"
-                                       ng-delay="1000"/> in
-                            </h4>
+                    <div class="small-9 medium-6 columns caloric-input-columns">
+                        <label class="caloric-factor-input">
+                            <input type="number" class="one-digit-input" maxlength="1"
+                                   ng-model="heightFeet"
+                                   ng-change="heightFeetChanged()"
+                                   ng-delay="1000"/>
                         </label>
+                        <h4 class="input-unit">ft</h4>
+                        <label class="caloric-factor-input">
+                            <input type="number" class="two-digit-input" maxlength="2"
+                                   ng-model="heightInches"
+                                   ng-change="heightInchesChanged()"
+                                   ng-delay="1000"/>
+                        </label>
+                        <h4 class="input-unit">in</h4>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="small-4 medium-6 columns caloric-factor-label">
+                    <div class="small-3 medium-6 columns caloric-factor-label">
                         <h4>
                             Weight
                         </h4>
                     </div>
-                    <div class="small-8 medium-6 columns">
-                        <label>
-                            <h4>
-                                <input class="three-digit-input" maxlength="3"
+                    <div class="small-9 medium-6 columns caloric-input-columns">
+                        <label class="caloric-factor-input">
+                                <input type="number" class="three-digit-input" maxlength="3"
                                        ng-model="weightInPounds"
                                        ng-change="weightInPoundsChanged()"
-                                       ng-delay="1000"/> lbs
-                            </h4>
+                                       ng-delay="1000"/>
                         </label>
+                        <h4 class="input-unit">lbs</h4>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 1rem">
+                <div class="row">
                     <div class="small-12 medium-6 columns caloric-factor-label trimester-factor-label">
                         <h4>
                             {{ ordinalTrimesterLabel }} Trimester
