@@ -55,8 +55,7 @@ angular
                     }
 
                     function isValidHeightForInches(heightForInches) {
-                        return heightForInches
-                                && !isNaN(heightForInches)
+                        return !isNaN(heightForInches)
                                 && heightForInches >= 0
                                 && heightForInches <= maxHeightForInches;
                     }
